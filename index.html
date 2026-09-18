@@ -25,10 +25,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Anti-Flash Theme Script & Smooth Page Load Animation -->
     <style>
-        html { background-color: #e0e5ec; }
-        html.dark { background-color: #1a1a2e; }
-        body { animation: smoothLoad 0.4s ease-in-out forwards; }
-        @keyframes smoothLoad { from { opacity: 0; } to { opacity: 1; } }
+        html {
+            background-color: #e0e5ec;
+        }
+
+        html.dark {
+            background-color: #1a1a2e;
+        }
+
+        body {
+            animation: smoothLoad 0.4s ease-in-out forwards;
+        }
+
+        @keyframes smoothLoad {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
     </style>
     <script>
         if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -47,23 +64,23 @@
 
     <nav
         class="sticky top-0 z-50 p-4 w-full bg-neuBg-light/80 dark:bg-neuBg-dark/80 backdrop-blur-md border-b border-gray-300/30 dark:border-gray-800/50 transition-colors duration-300 shadow-sm">
-        <div class="container mx-auto flex justify-between items-center">
-            <a href="index.html" class="flex items-center gap-3 group">
+        <div class="container mx-auto flex justify-between items-center gap-2">
+            <a href="index.html" class="flex items-center gap-2 xl:gap-3 group shrink-0">
                 <div
                     class="w-10 h-10 md:w-12 md:h-12 neu-btn flex items-center justify-center group-hover:scale-110 transition-transform duration-500 text-blue-600 dark:text-blue-400 relative">
-
                     <svg class="w-6 h-6 md:w-7 md:h-7 relative z-10" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 2L2 22h20L12 2zm0 4.5l7 14h-14l7-14z" />
                     </svg>
                 </div>
                 <span
-                    class="text-2xl md:text-3xl font-extrabold tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400">Lumina</span>
+                    class="text-xl md:text-2xl xl:text-3xl font-extrabold tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400">Lumina</span>
             </a>
-            <div class="hidden md:flex items-center gap-6 font-bold">
+
+            <div class="hidden lg:flex items-center gap-1 xl:gap-6 font-bold">
                 <div class="relative group">
                     <button
-                        class="dropdown-btn flex items-center gap-1 hover:text-blue-600 dark:hover:text-blue-400 transition-colors p-3 neu-btn text-sm uppercase tracking-wide">
-                        Home <i class="fas fa-chevron-down text-xs ml-1 opacity-70"></i>
+                        class="dropdown-btn flex items-center gap-1 hover:text-blue-600 dark:hover:text-blue-400 transition-colors px-2 py-2 xl:p-3 neu-btn text-[11px] xl:text-sm uppercase tracking-wide">
+                        Home <i class="fas fa-chevron-down text-[9px] xl:text-xs ml-1 opacity-70"></i>
                     </button>
                     <div
                         class="dropdown-menu absolute hidden top-full left-0 mt-4 w-40 neu-flat p-2 flex-col gap-2 z-50">
@@ -76,42 +93,44 @@
                     </div>
                 </div>
                 <a href="programs.html"
-                    class="p-3 neu-btn hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-sm uppercase tracking-wide">Programs</a>
+                    class="px-2 py-2 xl:p-3 neu-btn hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-[11px] xl:text-sm uppercase tracking-wide">Programs</a>
                 <a href="therapists.html"
-                    class="p-3 neu-btn hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-sm uppercase tracking-wide">Therapists</a>
+                    class="px-2 py-2 xl:p-3 neu-btn hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-[11px] xl:text-sm uppercase tracking-wide">Therapists</a>
                 <a href="resources.html"
-                    class="p-3 neu-btn hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-sm uppercase tracking-wide">Resources</a>
+                    class="px-2 py-2 xl:p-3 neu-btn hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-[11px] xl:text-sm uppercase tracking-wide">Resources</a>
                 <a href="contact.html"
-                    class="p-3 neu-btn hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-sm uppercase tracking-wide">Contact</a>
+                    class="px-2 py-2 xl:p-3 neu-btn hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-[11px] xl:text-sm uppercase tracking-wide">Contact</a>
             </div>
-            <div class="hidden md:flex items-center gap-5">
+
+            <div class="hidden lg:flex items-center gap-2 xl:gap-5 shrink-0">
                 <button
-                    class="dir-toggle neu-btn w-10 h-10 flex items-center justify-center text-lg hover:text-blue-500 transition-colors"
+                    class="dir-toggle neu-btn w-8 h-8 xl:w-10 xl:h-10 flex items-center justify-center text-sm xl:text-lg hover:text-blue-500 transition-colors"
                     title="Toggle RTL/LTR">
                     <i class="fas fa-exchange-alt"></i>
                 </button>
                 <button
-                    class="theme-toggle neu-btn w-10 h-10 flex items-center justify-center text-lg hover:text-blue-500 transition-colors"
+                    class="theme-toggle neu-btn w-8 h-8 xl:w-10 xl:h-10 flex items-center justify-center text-sm xl:text-lg hover:text-blue-500 transition-colors"
                     title="Toggle Theme">
                     <i class="fas fa-moon dark:hidden"></i>
                     <i class="fas fa-sun hidden dark:block text-yellow-400"></i>
                 </button>
-                <a href="signin.html" class="px-2 py-2 font-bold hover:text-blue-600 transition-colors text-sm">Sign
-                    In</a>
+                <a href="signin.html"
+                    class="px-2 py-2 font-bold hover:text-blue-600 transition-colors text-xs xl:text-sm">Sign In</a>
                 <a href="signup.html"
-                    class="neu-inset px-6 py-2.5 font-extrabold text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 hover:scale-105 transition-all duration-300 rounded-full uppercase tracking-wide text-xs shadow-lg shadow-blue-500/30">Get
+                    class="neu-inset px-4 py-2 xl:px-6 xl:py-2.5 font-extrabold text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 hover:scale-105 transition-all duration-300 rounded-full uppercase tracking-wide text-[10px] xl:text-xs shadow-lg shadow-blue-500/30 whitespace-nowrap">Get
                     Started</a>
             </div>
+
             <!-- Mobile Hamburger -->
             <button
-                class="mobile-menu-btn md:hidden neu-btn w-12 h-12 flex items-center justify-center text-xl text-blue-600 dark:text-blue-400">
+                class="mobile-menu-btn lg:hidden neu-btn w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-lg md:text-xl text-blue-600 dark:text-blue-400 shrink-0">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
 
         <!-- Mobile Menu (Fixed with scrollable height) -->
         <div
-            class="mobile-menu hidden md:hidden mt-4 flex-col gap-2 neu-inset p-5 rounded-3xl w-full text-base max-h-[75vh] overflow-y-auto">
+            class="mobile-menu hidden lg:hidden mt-4 flex-col gap-2 neu-inset p-5 rounded-3xl w-full text-base max-h-[75vh] overflow-y-auto">
             <a href="index.html" class="neu-flat p-3 text-center font-extrabold block">Home 1</a>
             <a href="index2.html" class="neu-flat p-3 text-center font-extrabold block">Home 2</a>
             <a href="programs.html" class="neu-flat p-3 text-center font-extrabold block">Programs</a>
@@ -198,7 +217,8 @@
                 <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-400 to-blue-600"></div>
                 <div
                     class="w-16 h-16 md:w-20 md:h-20 neu-inset rounded-full flex items-center justify-center mb-4 md:mb-6 text-blue-500 text-2xl md:text-3xl group-hover:scale-110 transition-transform">
-                    <i class="fas fa-brain relative z-10"></i></div>
+                    <i class="fas fa-brain relative z-10"></i>
+                </div>
                 <h3 class="text-xl md:text-2xl font-extrabold mb-3 md:mb-4 group-hover:text-blue-500 transition-colors">
                     Cognitive Support</h3>
                 <p class="opacity-80 font-bold text-sm md:text-base leading-relaxed">Tailored strategies to deeply
@@ -209,7 +229,8 @@
                 <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-green-400 to-green-600"></div>
                 <div
                     class="w-16 h-16 md:w-20 md:h-20 neu-inset rounded-full flex items-center justify-center mb-4 md:mb-6 text-green-500 text-2xl md:text-3xl group-hover:scale-110 transition-transform">
-                    <i class="fas fa-hands-helping"></i></div>
+                    <i class="fas fa-hands-helping"></i>
+                </div>
                 <h3
                     class="text-xl md:text-2xl font-extrabold mb-3 md:mb-4 group-hover:text-green-500 transition-colors">
                     Behavioral Therapy</h3>
@@ -221,7 +242,8 @@
                 <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-purple-400 to-purple-600"></div>
                 <div
                     class="w-16 h-16 md:w-20 md:h-20 neu-inset rounded-full flex items-center justify-center mb-4 md:mb-6 text-purple-500 text-2xl md:text-3xl group-hover:scale-110 transition-transform">
-                    <i class="fas fa-child"></i></div>
+                    <i class="fas fa-child"></i>
+                </div>
                 <h3
                     class="text-xl md:text-2xl font-extrabold mb-3 md:mb-4 group-hover:text-purple-500 transition-colors">
                     Motor Skills</h3>
@@ -240,7 +262,8 @@
                     class="flex flex-col sm:flex-row gap-4 sm:gap-6 items-center sm:items-start text-center sm:text-left neu-inset p-5 md:p-8 rounded-[1.5rem] md:rounded-[2rem] group hover:neu-flat transition-all duration-300 cursor-default">
                     <div
                         class="w-14 h-14 neu-flat rounded-full flex-shrink-0 flex items-center justify-center text-blue-500 text-xl group-hover:bg-blue-500 group-hover:text-white transition-colors">
-                        <i class="fas fa-check"></i></div>
+                        <i class="fas fa-check"></i>
+                    </div>
                     <div>
                         <h4 class="font-extrabold text-lg md:text-xl mb-2 group-hover:text-blue-500 transition-colors">
                             Multi-Sensory Environments</h4>
@@ -252,7 +275,8 @@
                     class="flex flex-col sm:flex-row gap-4 sm:gap-6 items-center sm:items-start text-center sm:text-left neu-inset p-5 md:p-8 rounded-[1.5rem] md:rounded-[2rem] group hover:neu-flat transition-all duration-300 cursor-default">
                     <div
                         class="w-14 h-14 neu-flat rounded-full flex-shrink-0 flex items-center justify-center text-purple-500 text-xl group-hover:bg-purple-500 group-hover:text-white transition-colors">
-                        <i class="fas fa-check"></i></div>
+                        <i class="fas fa-check"></i>
+                    </div>
                     <div>
                         <h4
                             class="font-extrabold text-lg md:text-xl mb-2 group-hover:text-purple-500 transition-colors">
@@ -265,7 +289,8 @@
                     class="flex flex-col sm:flex-row gap-4 sm:gap-6 items-center sm:items-start text-center sm:text-left neu-inset p-5 md:p-8 rounded-[1.5rem] md:rounded-[2rem] group hover:neu-flat transition-all duration-300 cursor-default">
                     <div
                         class="w-14 h-14 neu-flat rounded-full flex-shrink-0 flex items-center justify-center text-green-500 text-xl group-hover:bg-green-500 group-hover:text-white transition-colors">
-                        <i class="fas fa-check"></i></div>
+                        <i class="fas fa-check"></i>
+                    </div>
                     <div>
                         <h4 class="font-extrabold text-lg md:text-xl mb-2 group-hover:text-green-500 transition-colors">
                             Assistive Technology</h4>
@@ -277,7 +302,8 @@
                     class="flex flex-col sm:flex-row gap-4 sm:gap-6 items-center sm:items-start text-center sm:text-left neu-inset p-5 md:p-8 rounded-[1.5rem] md:rounded-[2rem] group hover:neu-flat transition-all duration-300 cursor-default">
                     <div
                         class="w-14 h-14 neu-flat rounded-full flex-shrink-0 flex items-center justify-center text-orange-500 text-xl group-hover:bg-orange-500 group-hover:text-white transition-colors">
-                        <i class="fas fa-check"></i></div>
+                        <i class="fas fa-check"></i>
+                    </div>
                     <div>
                         <h4
                             class="font-extrabold text-lg md:text-xl mb-2 group-hover:text-orange-500 transition-colors">
@@ -417,112 +443,153 @@
     </main>
 
     <!-- Ultra-Premium Cinematic Bento Footer for Lumina Special Needs Education -->
-<footer class="relative bg-[#050505] text-white pt-24 pb-8 mt-24 rounded-t-[2.5rem] md:rounded-t-[4rem] border-t border-white/10 overflow-hidden">
-    
-    <!-- Ambient Background Glow Effects -->
-    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80vw] h-[500px] bg-[radial-gradient(ellipse_at_bottom,rgba(59,130,246,0.15),transparent_70%)] pointer-events-none z-0"></div>
-    <div class="absolute top-0 right-0 w-[400px] h-[400px] bg-[radial-gradient(circle_at_center,rgba(99,102,241,0.05),transparent_60%)] pointer-events-none z-0"></div>
+    <footer
+        class="relative bg-[#050505] text-white pt-24 pb-8 mt-24 rounded-t-[2.5rem] md:rounded-t-[4rem] border-t border-white/10 overflow-hidden">
 
-    <!-- Section 1: Massive Typography CTA -->
-    <div class="relative z-10 container mx-auto px-6 lg:px-12 mb-20 text-center flex flex-col items-center">
-        <h2 class="text-[11vw] md:text-[7vw] font-black uppercase tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white via-gray-200 to-white/20 leading-[0.85] mb-8">
-            Empower Their Future.
-        </h2>
-        <a href="contact.html" class="group relative inline-flex items-center justify-center gap-3 px-10 py-5 bg-white text-black rounded-full font-bold text-lg tracking-wide overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-[0_0_40px_rgba(255,255,255,0.2)]">
-            <span class="relative z-10 flex items-center gap-2">
-                Start The Journey 
-                <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-            </span>
-        </a>
-    </div>
+        <!-- Ambient Background Glow Effects -->
+        <div
+            class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80vw] h-[500px] bg-[radial-gradient(ellipse_at_bottom,rgba(59,130,246,0.15),transparent_70%)] pointer-events-none z-0">
+        </div>
+        <div
+            class="absolute top-0 right-0 w-[400px] h-[400px] bg-[radial-gradient(circle_at_center,rgba(99,102,241,0.05),transparent_60%)] pointer-events-none z-0">
+        </div>
 
-    <!-- Section 2: Premium Bento Grid Layout -->
-    <div class="relative z-10 container mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-6 mb-16">
-        
-        <!-- Bento Card 1: Brand & Newsletter (Spans 5 cols) -->
-        <div class="lg:col-span-6 xl:col-span-5 bg-white/[0.02] border border-white/[0.05] rounded-[2rem] p-8 md:p-10 backdrop-blur-md flex flex-col justify-between hover:bg-white/[0.04] transition-colors duration-500">
-            <div>
-                <a href="index.html" class="flex items-center gap-4 mb-6 inline-flex">
-                    <!-- Lumina Logo Mark -->
-                    <div class="w-12 h-12 flex items-center justify-center rounded-full bg-[#11131e] shadow-[0_0_20px_rgba(59,130,246,0.15)]">
-                        <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5l-8 14h16l-8-14z"></path>
+        <!-- Section 1: Massive Typography CTA -->
+        <div class="relative z-10 container mx-auto px-6 lg:px-12 mb-20 text-center flex flex-col items-center">
+            <h2
+                class="text-[11vw] md:text-[7vw] font-black uppercase tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white via-gray-200 to-white/20 leading-[0.85] mb-8">
+                Empower Their Future.
+            </h2>
+            <a href="contact.html"
+                class="group relative inline-flex items-center justify-center gap-3 px-10 py-5 bg-white text-black rounded-full font-bold text-lg tracking-wide overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-[0_0_40px_rgba(255,255,255,0.2)]">
+                <span class="relative z-10 flex items-center gap-2">
+                    Start The Journey
+                    <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                </span>
+            </a>
+        </div>
+
+        <!-- Section 2: Premium Bento Grid Layout -->
+        <div class="relative z-10 container mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-6 mb-16">
+
+            <!-- Bento Card 1: Brand & Newsletter (Spans 5 cols) -->
+            <div
+                class="lg:col-span-6 xl:col-span-5 bg-white/[0.02] border border-white/[0.05] rounded-[2rem] p-8 md:p-10 backdrop-blur-md flex flex-col justify-between hover:bg-white/[0.04] transition-colors duration-500">
+                <div>
+                    <a href="index.html" class="flex items-center gap-4 mb-6 inline-flex">
+                        <!-- Lumina Logo Mark -->
+                        <div
+                            class="w-12 h-12 flex items-center justify-center rounded-full bg-[#11131e] shadow-[0_0_20px_rgba(59,130,246,0.15)]">
+                            <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5l-8 14h16l-8-14z"></path>
+                            </svg>
+                        </div>
+                        <!-- Lumina Text -->
+                        <span
+                            class="text-4xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">
+                            Lumina
+                        </span>
+                    </a>
+                    <p class="text-gray-400 font-light leading-relaxed mb-8 max-w-sm">
+                        Empowering special needs education with unparalleled compassion, modern techniques, and
+                        individualized care inside a meticulously crafted environment.
+                    </p>
+                </div>
+
+                <!-- Premium Inline Newsletter Form -->
+                <div class="relative">
+                    <input type="email" placeholder="Subscribe for parent resources..."
+                        class="w-full bg-black/50 border border-white/10 rounded-full py-4 pl-6 pr-32 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors">
+                    <button
+                        class="absolute right-1.5 top-1.5 bottom-1.5 bg-white text-black px-6 rounded-full text-sm font-bold hover:bg-blue-500 hover:text-white transition-colors">
+                        Join
+                    </button>
+                </div>
+            </div>
+
+            <!-- Bento Card 2: Navigation Links (Spans 4 cols) -->
+            <div
+                class="lg:col-span-3 xl:col-span-4 bg-white/[0.02] border border-white/[0.05] rounded-[2rem] p-8 md:p-10 backdrop-blur-md hover:bg-white/[0.04] transition-colors duration-500">
+                <h4 class="text-white font-bold text-sm tracking-widest uppercase mb-8 opacity-70">Quick Links</h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-5 text-gray-400 font-medium">
+                    <a href="programs.html"
+                        class="hover:text-white hover:translate-x-1 transition-all flex items-center group">
+                        <span
+                            class="w-1.5 h-1.5 rounded-full bg-blue-500 mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                        Programs
+                    </a>
+                    <a href="therapists.html"
+                        class="hover:text-white hover:translate-x-1 transition-all flex items-center group">
+                        <span
+                            class="w-1.5 h-1.5 rounded-full bg-blue-500 mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                        Therapists & Educators
+                    </a>
+                    <a href="resources.html"
+                        class="hover:text-white hover:translate-x-1 transition-all flex items-center group">
+                        <span
+                            class="w-1.5 h-1.5 rounded-full bg-blue-500 mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                        Parent Resources
+                    </a>
+                    <a href="contact.html"
+                        class="hover:text-white hover:translate-x-1 transition-all flex items-center group">
+                        <span
+                            class="w-1.5 h-1.5 rounded-full bg-blue-500 mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                        Contact
+                    </a>
+                </div>
+            </div>
+
+            <!-- Bento Card 3: Contact & Socials (Spans 3 cols) -->
+            <div
+                class="lg:col-span-3 bg-white/[0.02] border border-white/[0.05] rounded-[2rem] p-8 md:p-10 backdrop-blur-md hover:bg-white/[0.04] transition-colors duration-500 flex flex-col justify-between">
+                <div>
+                    <h4 class="text-white font-bold text-sm tracking-widest uppercase mb-6 opacity-70">Connect</h4>
+                    <a href="mailto:care@lumina.com"
+                        class="block text-lg font-medium text-white hover:text-blue-400 transition-colors mb-2">
+                        care@lumina.com
+                    </a>
+                    <p class="text-gray-500 text-sm">Mon - Fri, 8AM - 5PM</p>
+                </div>
+
+                <div class="mt-8 flex flex-wrap gap-3">
+                    <a href="https://x.com" target="_blank" rel="noopener noreferrer"
+                        class="w-10 h-10 rounded-full border border-white/10 bg-black/50 flex items-center justify-center text-gray-400 hover:bg-white hover:text-black transition-all duration-300">
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+                            <path
+                                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                         </svg>
-                    </div>
-                    <!-- Lumina Text -->
-                    <span class="text-4xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">
-                        Lumina
-                    </span>
-                </a>
-                <p class="text-gray-400 font-light leading-relaxed mb-8 max-w-sm">
-                    Empowering special needs education with unparalleled compassion, modern techniques, and individualized care inside a meticulously crafted environment.
-                </p>
-            </div>
-            
-            <!-- Premium Inline Newsletter Form -->
-            <div class="relative">
-                <input type="email" placeholder="Subscribe for parent resources..." class="w-full bg-black/50 border border-white/10 rounded-full py-4 pl-6 pr-32 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors">
-                <button class="absolute right-1.5 top-1.5 bottom-1.5 bg-white text-black px-6 rounded-full text-sm font-bold hover:bg-blue-500 hover:text-white transition-colors">
-                    Join
-                </button>
+                    </a>
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"
+                        class="w-10 h-10 rounded-full border border-white/10 bg-black/50 flex items-center justify-center text-gray-400 hover:bg-[#1877F2] hover:border-[#1877F2] hover:text-white transition-all duration-300">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+                        class="w-10 h-10 rounded-full border border-white/10 bg-black/50 flex items-center justify-center text-gray-400 hover:bg-[#E4405F] hover:border-[#E4405F] hover:text-white transition-all duration-300">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
+                        class="w-10 h-10 rounded-full border border-white/10 bg-black/50 flex items-center justify-center text-gray-400 hover:bg-[#0A66C2] hover:border-[#0A66C2] hover:text-white transition-all duration-300">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
             </div>
         </div>
 
-        <!-- Bento Card 2: Navigation Links (Spans 4 cols) -->
-        <div class="lg:col-span-3 xl:col-span-4 bg-white/[0.02] border border-white/[0.05] rounded-[2rem] p-8 md:p-10 backdrop-blur-md hover:bg-white/[0.04] transition-colors duration-500">
-            <h4 class="text-white font-bold text-sm tracking-widest uppercase mb-8 opacity-70">Quick Links</h4>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-5 text-gray-400 font-medium">
-                <a href="programs.html" class="hover:text-white hover:translate-x-1 transition-all flex items-center group">
-                    <span class="w-1.5 h-1.5 rounded-full bg-blue-500 mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span> Programs
-                </a>
-                <a href="therapists.html" class="hover:text-white hover:translate-x-1 transition-all flex items-center group">
-                    <span class="w-1.5 h-1.5 rounded-full bg-blue-500 mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span> Therapists & Educators
-                </a>
-                <a href="resources.html" class="hover:text-white hover:translate-x-1 transition-all flex items-center group">
-                    <span class="w-1.5 h-1.5 rounded-full bg-blue-500 mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span> Parent Resources
-                </a>
-                <a href="contact.html" class="hover:text-white hover:translate-x-1 transition-all flex items-center group">
-                    <span class="w-1.5 h-1.5 rounded-full bg-blue-500 mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span> Contact
-                </a>
+        <!-- Section 3: Bottom Legal Bar -->
+        <div
+            class="relative z-10 container mx-auto px-6 lg:px-12 flex flex-col md:flex-row items-center justify-between gap-4 pt-6 border-t border-white/[0.05] text-xs font-medium text-gray-500">
+            <p>&copy; 2026 Lumina Special Needs Education Center. All rights reserved.</p>
+            <div class="flex gap-8">
+                <a href="#" class="hover:text-gray-300 transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-gray-300 transition-colors">Terms of Service</a>
             </div>
         </div>
-
-        <!-- Bento Card 3: Contact & Socials (Spans 3 cols) -->
-        <div class="lg:col-span-3 bg-white/[0.02] border border-white/[0.05] rounded-[2rem] p-8 md:p-10 backdrop-blur-md hover:bg-white/[0.04] transition-colors duration-500 flex flex-col justify-between">
-            <div>
-                <h4 class="text-white font-bold text-sm tracking-widest uppercase mb-6 opacity-70">Connect</h4>
-                <a href="mailto:care@lumina.com" class="block text-lg font-medium text-white hover:text-blue-400 transition-colors mb-2">
-                    care@lumina.com
-                </a>
-                <p class="text-gray-500 text-sm">Mon - Fri, 8AM - 5PM</p>
-            </div>
-            
-            <div class="mt-8 flex flex-wrap gap-3">
-                <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full border border-white/10 bg-black/50 flex items-center justify-center text-gray-400 hover:bg-white hover:text-black transition-all duration-300">
-                    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                </a>
-                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full border border-white/10 bg-black/50 flex items-center justify-center text-gray-400 hover:bg-[#1877F2] hover:border-[#1877F2] hover:text-white transition-all duration-300">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full border border-white/10 bg-black/50 flex items-center justify-center text-gray-400 hover:bg-[#E4405F] hover:border-[#E4405F] hover:text-white transition-all duration-300">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full border border-white/10 bg-black/50 flex items-center justify-center text-gray-400 hover:bg-[#0A66C2] hover:border-[#0A66C2] hover:text-white transition-all duration-300">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Section 3: Bottom Legal Bar -->
-    <div class="relative z-10 container mx-auto px-6 lg:px-12 flex flex-col md:flex-row items-center justify-between gap-4 pt-6 border-t border-white/[0.05] text-xs font-medium text-gray-500">
-        <p>&copy; 2026 Lumina Special Needs Education Center. All rights reserved.</p>
-        <div class="flex gap-8">
-            <a href="#" class="hover:text-gray-300 transition-colors">Privacy Policy</a>
-            <a href="#" class="hover:text-gray-300 transition-colors">Terms of Service</a>
-        </div>
-    </div>
-</footer>
+    </footer>
 
     <script src="script.js"></script>
 </body>
