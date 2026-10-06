@@ -74,7 +74,7 @@
             </svg>
           </div>
           <span
-            class="text-xl md:text-2xl xl:text-3xl font-extrabold tracking-tighter bg-clip-text text-transparent bg-blue-600 dark:from-blue-400 dark:to-indigo-400"
+            class="text-xl md:text-2xl xl:text-3xl font-extrabold tracking-tighter bg-clip-text text-transparent bg-blue-600 dark:from-blue-400 dark:to-blue-400"
             >Lumina</span
           >
         </a>
@@ -265,7 +265,7 @@
           class="absolute top-0 right-0 w-64 h-64 bg-blue-500 opacity-5 blur-[100px] rounded-full pointer-events-none"
         ></div>
         <h2
-          class="text-3xl md:text-5xl font-black mb-10 md:mb-16 text-center bg-clip-text text-transparent bg-blue-600 dark:from-blue-400 dark:to-indigo-400"
+          class="text-3xl md:text-5xl font-black mb-10 md:mb-16 text-center bg-clip-text text-transparent bg-blue-600 dark:from-blue-400 dark:to-blue-400"
         >
           Assessment Booking Form
         </h2>
@@ -286,7 +286,10 @@
                 >Parent/Guardian Name</label
               >
               <input
-                type="text" pattern="[a-zA-Z\s\-]+" title="Please enter only letters" oninput="this.value = this.value.replace(/[^a-zA-Z\s\-]/g, '')"
+                type="text"
+                pattern="[a-zA-Z\s\-]+"
+                title="Please enter only letters"
+                oninput="this.value = this.value.replace(/[^a-zA-Z\s\-]/g, '')"
                 class="w-full neu-inset p-4 md:p-6 rounded-md md:rounded-lg bg-transparent outline-none focus:ring-4 focus:ring-blue-500/30 transition-all font-bold text-sm md:text-lg"
                 required
               />
@@ -308,7 +311,12 @@
                 >Phone Number</label
               >
               <input
-                type="tel" pattern="[\d\s\-\+\(\)]+" title="Please enter a valid phone number" oninput="this.value = this.value.replace(/[^\d\s\-\+\(\)]/g, '')"
+                type="tel"
+                pattern="[\d\s\-\+\(\)]+"
+                title="Please enter a valid phone number"
+                oninput="
+                  this.value = this.value.replace(/[^\d\s\-\+\(\)]/g, '')
+                "
                 class="w-full neu-inset p-4 md:p-6 rounded-md md:rounded-lg bg-transparent outline-none focus:ring-4 focus:ring-blue-500/30 transition-all font-bold text-sm md:text-lg"
                 required
               />
@@ -452,13 +460,13 @@
             class="absolute top-0 left-0 w-full h-2 bg-blue-600 hover:bg-blue-700 opacity-0 group-hover:opacity-100 transition-opacity"
           ></div>
           <div
-            class="w-20 h-20 md:w-24 md:h-24 neu-inset rounded-full flex items-center justify-center flex-shrink-0 text-3xl md:text-4xl text-green-500 transition-transform"
+            class="w-20 h-20 md:w-24 md:h-24 neu-inset rounded-full flex items-center justify-center flex-shrink-0 text-3xl md:text-4xl text-blue-500 transition-transform"
           >
             <i class="fas fa-envelope"></i>
           </div>
           <div>
             <h4
-              class="font-black text-2xl md:text-3xl mb-2 md:mb-3 group-hover:text-green-500 transition-colors"
+              class="font-black text-2xl md:text-3xl mb-2 md:mb-3 group-hover:text-blue-500 transition-colors"
             >
               Email Us
             </h4>
@@ -476,7 +484,7 @@
         class="neu-inset p-8 md:p-12 lg:p-16 rounded-lg md:rounded-[4rem] relative overflow-hidden"
       >
         <div
-          class="absolute -bottom-32 -left-32 w-64 h-64 bg-purple-500 opacity-10 blur-[100px] rounded-full"
+          class="absolute -bottom-32 -left-32 w-64 h-64 bg-blue-500 opacity-10 blur-[100px] rounded-full"
         ></div>
         <h2
           class="text-3xl md:text-5xl font-black mb-8 md:mb-12 text-center neu-text relative z-10"
@@ -507,7 +515,7 @@
                 >(Therapy Only)</span
               ></span
             >
-            <span class="text-xl md:text-2xl text-green-600 dark:text-green-400"
+            <span class="text-xl md:text-2xl text-blue-600 dark:text-blue-400"
               >9:00 AM - 1:00 PM</span
             >
           </div>
@@ -533,9 +541,7 @@
         <h2
           class="text-2xl md:text-4xl font-black mb-4 md:mb-6 text-orange-500 flex flex-col md:flex-row items-center justify-center gap-3 md:gap-4 relative z-10"
         >
-          <i
-            class="fas fa-clock text-3xl md:text-5xl"
-          ></i>
+          <i class="fas fa-clock text-3xl md:text-5xl"></i>
           Premium After-Hours Support
         </h2>
         <p
@@ -701,7 +707,7 @@
           <h4
             class="font-bold text-slate-900 dark:text-white mb-6 uppercase tracking-wider text-sm flex items-center gap-2"
           >
-            <span class="w-2 h-2 rounded-full bg-purple-500"></span> Contact Us
+            <span class="w-2 h-2 rounded-full bg-blue-500"></span> Contact Us
           </h4>
           <ul class="space-y-4 text-sm text-slate-500 dark:text-slate-400">
             <li class="flex items-start gap-3">
@@ -716,7 +722,7 @@
             </li>
             <li class="flex items-center gap-3">
               <div
-                class="w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center text-green-500 shrink-0"
+                class="w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center text-blue-500 shrink-0"
               >
                 <i class="fas fa-phone-alt"></i>
               </div>
@@ -728,7 +734,7 @@
             </li>
             <li class="flex items-center gap-3">
               <div
-                class="w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center text-purple-500 shrink-0"
+                class="w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center text-blue-500 shrink-0"
               >
                 <i class="fas fa-envelope"></i>
               </div>
@@ -782,6 +788,3 @@
     <script src="script.js"></script>
   </body>
 </html>
-
-
-
