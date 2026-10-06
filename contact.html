@@ -286,7 +286,7 @@
                 >Parent/Guardian Name</label
               >
               <input
-                type="text"
+                type="text" pattern="[a-zA-Z\s\-]+" title="Please enter only letters" oninput="this.value = this.value.replace(/[^a-zA-Z\s\-]/g, '')"
                 class="w-full neu-inset p-4 md:p-6 rounded-md md:rounded-lg bg-transparent outline-none focus:ring-4 focus:ring-blue-500/30 transition-all font-bold text-sm md:text-lg"
                 required
               />
@@ -308,7 +308,7 @@
                 >Phone Number</label
               >
               <input
-                type="tel"
+                type="tel" pattern="[\d\s\-\+\(\)]+" title="Please enter a valid phone number" oninput="this.value = this.value.replace(/[^\d\s\-\+\(\)]/g, '')"
                 class="w-full neu-inset p-4 md:p-6 rounded-md md:rounded-lg bg-transparent outline-none focus:ring-4 focus:ring-blue-500/30 transition-all font-bold text-sm md:text-lg"
                 required
               />
@@ -393,7 +393,7 @@
               alt="Map Location"
             />
             <div
-              class="relative z-10 w-16 h-16 md:w-24 md:h-24 neu-btn rounded-full text-red-500 flex items-center justify-center text-3xl md:text-4xl shadow-2xl bg-white/20 dark:bg-black/40 backdrop-blur-md"
+              class="relative z-10 w-16 h-16 md:w-24 md:h-24 neu-btn rounded-full text-orange-500 flex items-center justify-center text-3xl md:text-4xl shadow-2xl bg-white/20 dark:bg-black/40 backdrop-blur-md"
             >
               <i class="fas fa-map-marker-alt drop-shadow-md"></i>
             </div>
@@ -512,10 +512,10 @@
             >
           </div>
           <div
-            class="flex flex-col sm:flex-row justify-between pb-4 items-center gap-2 text-red-500"
+            class="flex flex-col sm:flex-row justify-between pb-4 items-center gap-2 text-orange-500"
           >
             <span
-              class="uppercase tracking-widest text-xs md:text-sm opacity-80 text-red-500"
+              class="uppercase tracking-widest text-xs md:text-sm opacity-80 text-orange-500"
               >Sunday</span
             >
             <span class="text-xl md:text-2xl">Closed strictly</span>
@@ -525,16 +525,16 @@
 
       <!-- C6: Emergency Contacts (Refined Layout) -->
       <section
-        class="neu-flat p-8 md:p-16 rounded-lg md:rounded-[4rem] text-center border-t-4 border-red-500/50 hover:border-red-500 transition-colors duration-500 group relative overflow-hidden"
+        class="neu-flat p-8 md:p-16 rounded-lg md:rounded-[4rem] text-center border-t-4 border-orange-400/30 hover:border-orange-400 transition-colors duration-500 group relative overflow-hidden"
       >
         <div
-          class="absolute inset-0 bg-red-500/5 dark:bg-red-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+          class="absolute inset-0 bg-orange-500/5 dark:bg-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
         ></div>
         <h2
-          class="text-2xl md:text-4xl font-black mb-4 md:mb-6 text-red-500 flex flex-col md:flex-row items-center justify-center gap-3 md:gap-4 relative z-10"
+          class="text-2xl md:text-4xl font-black mb-4 md:mb-6 text-orange-500 flex flex-col md:flex-row items-center justify-center gap-3 md:gap-4 relative z-10"
         >
           <i
-            class="fas fa-exclamation-triangle text-3xl md:text-5xl animate-pulse"
+            class="fas fa-clock text-3xl md:text-5xl"
           ></i>
           Premium After-Hours Support
         </h2>
@@ -548,7 +548,7 @@
           class="inline-block neu-inset px-6 md:px-10 py-4 md:py-6 rounded-md md:rounded-lg relative z-10"
         >
           <p
-            class="font-black text-xl md:text-3xl font-mono opacity-90 text-red-600 dark:text-red-400 flex items-center gap-3"
+            class="font-black text-xl md:text-3xl font-mono opacity-90 text-orange-600 dark:text-orange-400 flex items-center gap-3"
           >
             <i class="fas fa-phone-alt text-lg md:text-2xl"></i> (800) 555-9111
           </p>
@@ -782,3 +782,6 @@
     <script src="script.js"></script>
   </body>
 </html>
+
+
+
