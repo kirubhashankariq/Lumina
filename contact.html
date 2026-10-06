@@ -1,490 +1,784 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="dark">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lumina - Contact</title>
     <!-- Custom Favicon -->
-    <link rel="icon" type="image/svg+xml"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌟</text></svg>">
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌟</text></svg>"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        neuBg: { light: '#e0e5ec', dark: '#1a1a2e' }
-                    }
-                }
-            }
-        }
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              neuBg: { light: "#e0e5ec", dark: "#1a1a2e" },
+            },
+          },
+        },
+      };
     </script>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
 
     <!-- Anti-Flash Theme Script & Smooth Page Load Animation -->
-    <style>
-        html {
-            background-color: #e0e5ec;
-        }
 
-        html.dark {
-            background-color: #1a1a2e;
-        }
-
-        body {
-            animation: smoothLoad 0.4s ease-in-out forwards;
-        }
-
-        @keyframes smoothLoad {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-    </style>
     <script>
-        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
+      if (
+        localStorage.getItem("theme") === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
     </script>
-</head>
+  </head>
 
-<body
+  <body
     class="bg-neuBg-light dark:bg-neuBg-dark text-gray-800 dark:text-gray-100 transition-colors duration-300 font-sans min-h-screen flex flex-col relative break-words"
-    dir="ltr">
+    dir="ltr"
+  >
     <!-- Premium Moving Particle Animation -->
-    <canvas id="particles-canvas" class="fixed inset-0 z-0 pointer-events-none"></canvas>
+    <canvas
+      id="particles-canvas"
+      class="fixed inset-0 z-0 pointer-events-none"
+    ></canvas>
 
     <nav
-        class="sticky top-0 z-50 p-4 w-full bg-neuBg-light/80 dark:bg-neuBg-dark/80 backdrop-blur-md border-b border-gray-300/30 dark:border-gray-800/50 transition-colors duration-300 shadow-sm">
-        <div class="container mx-auto flex justify-between items-center gap-2">
-            <a href="index.html" class="flex items-center gap-2 xl:gap-3 group shrink-0">
-                <div
-                    class="w-10 h-10 md:w-12 md:h-12 neu-btn flex items-center justify-center group-hover:scale-110 transition-transform duration-500 text-blue-600 dark:text-blue-400 relative">
-                    <svg class="w-6 h-6 md:w-7 md:h-7 relative z-10" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2L2 22h20L12 2zm0 4.5l7 14h-14l7-14z" />
-                    </svg>
-                </div>
-                <span
-                    class="text-xl md:text-2xl xl:text-3xl font-extrabold tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400">Lumina</span>
-            </a>
+      class="sticky top-0 z-50 p-4 w-full bg-neuBg-light/80 dark:bg-neuBg-dark/80 backdrop-blur-md border-b border-gray-300/30 dark:border-gray-800/50 transition-colors duration-300 shadow-sm"
+    >
+      <div class="container mx-auto flex justify-between items-center gap-2">
+        <a
+          href="index.html"
+          class="flex items-center gap-2 xl:gap-3 group shrink-0"
+        >
+          <div
+            class="w-10 h-10 md:w-12 md:h-12 neu-btn flex items-center justify-center transition-transform duration-500 text-blue-600 dark:text-blue-400 relative"
+          >
+            <svg
+              class="w-6 h-6 md:w-7 md:h-7 relative z-10"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path d="M12 2L2 22h20L12 2zm0 4.5l7 14h-14l7-14z" />
+            </svg>
+          </div>
+          <span
+            class="text-xl md:text-2xl xl:text-3xl font-extrabold tracking-tighter bg-clip-text text-transparent bg-blue-600 dark:from-blue-400 dark:to-indigo-400"
+            >Lumina</span
+          >
+        </a>
 
-            <div class="hidden lg:flex items-center gap-1 xl:gap-6 font-bold">
-                <div class="relative group">
-                    <button
-                        class="dropdown-btn flex items-center gap-1 hover:text-blue-600 dark:hover:text-blue-400 transition-colors px-2 py-2 xl:p-3 neu-btn text-[11px] xl:text-sm uppercase tracking-wide">
-                        Home <i class="fas fa-chevron-down text-[9px] xl:text-xs ml-1 opacity-70"></i>
-                    </button>
-                    <div
-                        class="dropdown-menu absolute hidden top-full left-0 mt-4 w-40 neu-flat p-2 flex-col gap-2 z-50">
-                        <a href="index.html"
-                            class="p-3 hover:text-blue-500 transition-colors block text-center neu-btn text-sm">Home
-                            1</a>
-                        <a href="index2.html"
-                            class="p-3 hover:text-blue-500 transition-colors block text-center neu-btn text-sm">Home
-                            2</a>
-                    </div>
-                </div>
-                <a href="programs.html"
-                    class="px-2 py-2 xl:p-3 neu-btn hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-[11px] xl:text-sm uppercase tracking-wide">Programs</a>
-                <a href="therapists.html"
-                    class="px-2 py-2 xl:p-3 neu-btn hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-[11px] xl:text-sm uppercase tracking-wide">Therapists</a>
-                <a href="resources.html"
-                    class="px-2 py-2 xl:p-3 neu-btn hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-[11px] xl:text-sm uppercase tracking-wide">Resources</a>
-                <a href="contact.html"
-                    class="px-2 py-2 xl:p-3 neu-btn hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-[11px] xl:text-sm uppercase tracking-wide">Contact</a>
-            </div>
-
-            <div class="hidden lg:flex items-center gap-2 xl:gap-5 shrink-0">
-                <button
-                    class="dir-toggle neu-btn w-8 h-8 xl:w-10 xl:h-10 flex items-center justify-center text-sm xl:text-lg hover:text-blue-500 transition-colors"
-                    title="Toggle RTL/LTR">
-                    <i class="fas fa-exchange-alt"></i>
-                </button>
-                <button
-                    class="theme-toggle neu-btn w-8 h-8 xl:w-10 xl:h-10 flex items-center justify-center text-sm xl:text-lg hover:text-blue-500 transition-colors"
-                    title="Toggle Theme">
-                    <i class="fas fa-moon dark:hidden"></i>
-                    <i class="fas fa-sun hidden dark:block text-yellow-400"></i>
-                </button>
-                <a href="signin.html"
-                    class="px-2 py-2 font-bold hover:text-blue-600 transition-colors text-xs xl:text-sm">Sign In</a>
-                <a href="signup.html"
-                    class="neu-inset px-4 py-2 xl:px-6 xl:py-2.5 font-extrabold text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 hover:scale-105 transition-all duration-300 rounded-full uppercase tracking-wide text-[10px] xl:text-xs shadow-lg shadow-blue-500/30 whitespace-nowrap">Get
-                    Started</a>
-            </div>
-
-            <!-- Mobile Hamburger -->
+        <div class="hidden lg:flex items-center gap-1 xl:gap-6 font-bold">
+          <div class="relative group">
             <button
-                class="mobile-menu-btn lg:hidden neu-btn w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-lg md:text-xl text-blue-600 dark:text-blue-400 shrink-0">
-                <i class="fas fa-bars"></i>
+              class="dropdown-btn flex items-center gap-1 hover:text-blue-600 dark:hover:text-blue-400 transition-colors px-2 py-2 xl:p-3 neu-btn text-[11px] xl:text-sm uppercase tracking-wide"
+            >
+              Home
+              <i
+                class="fas fa-chevron-down text-[9px] xl:text-xs ml-1 opacity-70"
+              ></i>
             </button>
+            <div
+              class="dropdown-menu absolute hidden top-full left-0 mt-4 w-40 neu-flat p-2 flex-col gap-2 z-50"
+            >
+              <a
+                href="index.html"
+                class="p-3 hover:text-blue-500 transition-colors block text-center neu-btn text-sm"
+                >Home 1</a
+              >
+              <a
+                href="index2.html"
+                class="p-3 hover:text-blue-500 transition-colors block text-center neu-btn text-sm"
+                >Home 2</a
+              >
+            </div>
+          </div>
+          <a
+            href="programs.html"
+            class="px-2 py-2 xl:p-3 neu-btn hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-[11px] xl:text-sm uppercase tracking-wide"
+            >Programs</a
+          >
+          <a
+            href="therapists.html"
+            class="px-2 py-2 xl:p-3 neu-btn hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-[11px] xl:text-sm uppercase tracking-wide"
+            >Therapists</a
+          >
+          <a
+            href="resources.html"
+            class="px-2 py-2 xl:p-3 neu-btn hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-[11px] xl:text-sm uppercase tracking-wide"
+            >Resources</a
+          >
+          <a
+            href="contact.html"
+            class="px-2 py-2 xl:p-3 neu-btn hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-[11px] xl:text-sm uppercase tracking-wide"
+            >Contact</a
+          >
         </div>
 
-        <!-- Mobile Menu (Fixed with scrollable height) -->
-        <div
-            class="mobile-menu hidden lg:hidden mt-4 flex-col gap-2 neu-inset p-5 rounded-3xl w-full text-base max-h-[75vh] overflow-y-auto">
-            <a href="index.html" class="neu-flat p-3 text-center font-extrabold block">Home 1</a>
-            <a href="index2.html" class="neu-flat p-3 text-center font-extrabold block">Home 2</a>
-            <a href="programs.html" class="neu-flat p-3 text-center font-extrabold block">Programs</a>
-            <a href="therapists.html" class="neu-flat p-3 text-center font-extrabold block">Therapists & Educators</a>
-            <a href="resources.html" class="neu-flat p-3 text-center font-extrabold block">Parent Resources</a>
-            <a href="contact.html" class="neu-flat p-3 text-center font-extrabold block">Contact</a>
-
-            <!-- Visible Mobile Toggles -->
-            <div class="flex gap-3 p-1 mt-4 border-t border-gray-400/20 pt-5">
-                <button class="mobile-dir-toggle neu-btn p-3 flex-1 font-bold flex items-center justify-center text-sm">
-                    <i class="fas fa-exchange-alt mr-2"></i> RTL/LTR
-                </button>
-                <button
-                    class="mobile-theme-toggle neu-btn p-3 flex-1 font-bold flex items-center justify-center text-sm">
-                    <i class="fas fa-moon dark:hidden mr-2"></i>
-                    <i class="fas fa-sun hidden dark:inline mr-2 text-yellow-400"></i> Theme
-                </button>
-            </div>
-
-            <div class="flex gap-3 p-1 mt-2">
-                <a href="signin.html" class="neu-btn p-3 text-center flex-1 font-bold text-sm">Sign In</a>
-                <a href="signup.html"
-                    class="neu-inset p-3 text-center flex-1 text-white bg-gradient-to-r from-blue-600 to-indigo-600 font-extrabold text-sm">Get
-                    Started</a>
-            </div>
+        <div class="hidden lg:flex items-center gap-2 xl:gap-5 shrink-0">
+          <button
+            class="dir-toggle neu-btn w-8 h-8 xl:w-10 xl:h-10 flex items-center justify-center text-sm xl:text-lg hover:text-blue-500 transition-colors"
+            title="Toggle RTL/LTR"
+          >
+            <i class="fas fa-exchange-alt"></i>
+          </button>
+          <button
+            class="theme-toggle neu-btn w-8 h-8 xl:w-10 xl:h-10 flex items-center justify-center text-sm xl:text-lg hover:text-blue-500 transition-colors"
+            title="Toggle Theme"
+          >
+            <i class="fas fa-moon dark:hidden"></i>
+            <i class="fas fa-sun hidden dark:block text-yellow-400"></i>
+          </button>
+          <a
+            href="signin.html"
+            class="px-2 py-2 font-bold hover:text-blue-600 transition-colors text-xs xl:text-sm"
+            >Sign In</a
+          >
+          <a
+            href="signup.html"
+            class="neu-inset px-4 py-2 xl:px-6 xl:py-2.5 font-extrabold text-white bg-blue-600 hover:bg-blue-700 hover:scale-105 transition-all duration-300 rounded-full uppercase tracking-wide text-[10px] xl:text-xs shadow-lg shadow-blue-500/30 whitespace-nowrap"
+            >Get Started</a
+          >
         </div>
+
+        <!-- Mobile Hamburger -->
+        <button
+          class="mobile-menu-btn lg:hidden neu-btn w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-lg md:text-xl text-blue-600 dark:text-blue-400 shrink-0"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Menu (Fixed with scrollable height) -->
+      <div
+        class="mobile-menu hidden lg:hidden mt-4 flex-col gap-2 neu-inset p-5 rounded-3xl w-full text-base max-h-[75vh] overflow-y-auto"
+      >
+        <a
+          href="index.html"
+          class="neu-flat p-3 text-center font-extrabold block"
+          >Home 1</a
+        >
+        <a
+          href="index2.html"
+          class="neu-flat p-3 text-center font-extrabold block"
+          >Home 2</a
+        >
+        <a
+          href="programs.html"
+          class="neu-flat p-3 text-center font-extrabold block"
+          >Programs</a
+        >
+        <a
+          href="therapists.html"
+          class="neu-flat p-3 text-center font-extrabold block"
+          >Therapists & Educators</a
+        >
+        <a
+          href="resources.html"
+          class="neu-flat p-3 text-center font-extrabold block"
+          >Parent Resources</a
+        >
+        <a
+          href="contact.html"
+          class="neu-flat p-3 text-center font-extrabold block"
+          >Contact</a
+        >
+
+        <!-- Visible Mobile Toggles -->
+        <div class="flex gap-3 p-1 mt-4 border-t border-gray-400/20 pt-5">
+          <button
+            class="mobile-dir-toggle neu-btn p-3 flex-1 font-bold flex items-center justify-center text-sm"
+          >
+            <i class="fas fa-exchange-alt mr-2"></i> RTL/LTR
+          </button>
+          <button
+            class="mobile-theme-toggle neu-btn p-3 flex-1 font-bold flex items-center justify-center text-sm"
+          >
+            <i class="fas fa-moon dark:hidden mr-2"></i>
+            <i class="fas fa-sun hidden dark:inline mr-2 text-yellow-400"></i>
+            Theme
+          </button>
+        </div>
+
+        <div class="flex gap-3 p-1 mt-2">
+          <a
+            href="signin.html"
+            class="neu-btn p-3 text-center flex-1 font-bold text-sm"
+            >Sign In</a
+          >
+          <a
+            href="signup.html"
+            class="neu-inset p-3 text-center flex-1 text-white bg-blue-600 font-extrabold text-sm"
+            >Get Started</a
+          >
+        </div>
+      </div>
     </nav>
 
     <main
-        class="flex-grow relative z-10 flex flex-col gap-10 md:gap-16 py-8 md:py-10 container mx-auto px-4 lg:px-8 max-w-7xl">
+      class="flex-grow relative z-10 flex flex-col gap-10 md:gap-16 py-8 md:py-10 container mx-auto px-4 lg:px-8 max-w-7xl"
+    >
+      <!-- C1: Hero (Glassmorphism Upgrade) -->
+      <header
+        class="rounded-lg md:rounded-lg overflow-hidden neu-flat min-h-[350px] md:h-[500px] flex items-center justify-center text-center p-4 md:p-8 relative bg-cover bg-center shadow-2xl"
+        style="
+          background-image: url(&quot;https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1600&auto=format&fit=crop&quot;);
+        "
+      >
+        <div
+          class="absolute inset-0 bg-black/40 dark:bg-black/60 z-0 mix-blend-overlay"
+        ></div>
 
-        <!-- C1: Hero (Glassmorphism Upgrade) -->
-        <header
-            class="rounded-[2rem] md:rounded-[3rem] overflow-hidden neu-flat min-h-[350px] md:h-[500px] flex items-center justify-center text-center p-4 md:p-8 relative bg-cover bg-center shadow-2xl"
-            style="background-image: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1600&auto=format&fit=crop');">
-            <div class="absolute inset-0 bg-black/40 dark:bg-black/60 z-0 mix-blend-overlay"></div>
+        <div
+          class="hero-content max-w-3xl z-10 relative backdrop-blur-md bg-white/10 dark:bg-black/20 border border-white/20 p-8 md:p-12 rounded-lg shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]"
+        >
+          <h1
+            class="text-3xl sm:text-4xl md:text-6xl font-black mb-4 md:mb-6 text-white drop-shadow-md tracking-tight px-2"
+          >
+            Get in Touch
+          </h1>
+          <p
+            class="text-base md:text-2xl text-white/90 drop-shadow-md font-bold px-2"
+          >
+            We're perfectly prepared to answer your questions and welcome your
+            family.
+          </p>
+        </div>
+      </header>
 
+      <!-- C2: Assessment Form (Responsive & Scaled) -->
+      <section
+        class="neu-flat p-6 md:p-12 lg:p-16 rounded-lg md:rounded-lg relative overflow-hidden"
+      >
+        <div
+          class="absolute top-0 right-0 w-64 h-64 bg-blue-500 opacity-5 blur-[100px] rounded-full pointer-events-none"
+        ></div>
+        <h2
+          class="text-3xl md:text-5xl font-black mb-10 md:mb-16 text-center bg-clip-text text-transparent bg-blue-600 dark:from-blue-400 dark:to-indigo-400"
+        >
+          Assessment Booking Form
+        </h2>
+
+        <form
+          class="max-w-4xl mx-auto space-y-6 md:space-y-10 relative z-10"
+          onsubmit="
+            event.preventDefault();
+            alert(
+              'Assessment Requested successfully! We will contact you shortly.',
+            );
+          "
+        >
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
+            <div>
+              <label
+                class="block text-xs md:text-sm font-extrabold mb-3 md:mb-4 pl-4 opacity-80 uppercase tracking-widest text-blue-600 dark:text-blue-400"
+                >Parent/Guardian Name</label
+              >
+              <input
+                type="text"
+                class="w-full neu-inset p-4 md:p-6 rounded-md md:rounded-lg bg-transparent outline-none focus:ring-4 focus:ring-blue-500/30 transition-all font-bold text-sm md:text-lg"
+                required
+              />
+            </div>
+            <div>
+              <label
+                class="block text-xs md:text-sm font-extrabold mb-3 md:mb-4 pl-4 opacity-80 uppercase tracking-widest text-blue-600 dark:text-blue-400"
+                >Email Address</label
+              >
+              <input
+                type="email"
+                class="w-full neu-inset p-4 md:p-6 rounded-md md:rounded-lg bg-transparent outline-none focus:ring-4 focus:ring-blue-500/30 transition-all font-bold text-sm md:text-lg"
+                required
+              />
+            </div>
+            <div>
+              <label
+                class="block text-xs md:text-sm font-extrabold mb-3 md:mb-4 pl-4 opacity-80 uppercase tracking-widest text-blue-600 dark:text-blue-400"
+                >Phone Number</label
+              >
+              <input
+                type="tel"
+                class="w-full neu-inset p-4 md:p-6 rounded-md md:rounded-lg bg-transparent outline-none focus:ring-4 focus:ring-blue-500/30 transition-all font-bold text-sm md:text-lg"
+                required
+              />
+            </div>
+            <div>
+              <label
+                class="block text-xs md:text-sm font-extrabold mb-3 md:mb-4 pl-4 opacity-80 uppercase tracking-widest text-blue-600 dark:text-blue-400"
+                >Child's Age</label
+              >
+              <input
+                type="number"
+                class="w-full neu-inset p-4 md:p-6 rounded-md md:rounded-lg bg-transparent outline-none focus:ring-4 focus:ring-blue-500/30 transition-all font-bold text-sm md:text-lg"
+                required
+              />
+            </div>
+          </div>
+          <div>
+            <label
+              class="block text-xs md:text-sm font-extrabold mb-3 md:mb-4 pl-4 opacity-80 uppercase tracking-widest text-blue-600 dark:text-blue-400"
+              >Primary Concern / Area of Interest</label
+            >
+            <div class="relative">
+              <select
+                class="w-full neu-inset p-4 md:p-6 rounded-md md:rounded-lg bg-transparent outline-none focus:ring-4 focus:ring-blue-500/30 transition-all font-bold text-sm md:text-lg appearance-none cursor-pointer"
+              >
+                <option value="" disabled selected class="dark:text-black">
+                  Select an elite option
+                </option>
+                <option value="early" class="dark:text-black">
+                  Early Intervention
+                </option>
+                <option value="learning" class="dark:text-black">
+                  Learning Disabilities
+                </option>
+                <option value="therapy" class="dark:text-black">
+                  Speech / Occupational Therapy
+                </option>
+                <option value="other" class="dark:text-black">
+                  Other Needs
+                </option>
+              </select>
+              <i
+                class="fas fa-chevron-down absolute right-6 md:right-8 top-1/2 -translate-y-1/2 pointer-events-none text-blue-500"
+              ></i>
+            </div>
+          </div>
+          <div>
+            <label
+              class="block text-xs md:text-sm font-extrabold mb-3 md:mb-4 pl-4 opacity-80 uppercase tracking-widest text-blue-600 dark:text-blue-400"
+              >Additional Details</label
+            >
+            <textarea
+              rows="4"
+              class="w-full neu-inset p-4 md:p-6 rounded-md md:rounded-lg bg-transparent outline-none focus:ring-4 focus:ring-blue-500/30 transition-all font-bold text-sm md:text-lg leading-relaxed"
+            ></textarea>
+          </div>
+          <div class="text-center pt-6 md:pt-8">
+            <button
+              type="submit"
+              class="px-10 md:px-16 py-4 md:py-6 font-black text-lg md:text-2xl text-white bg-blue-600 hover:bg-blue-700 transition-all w-full md:w-auto uppercase tracking-widest shadow-xl rounded-full hover:scale-105 border border-blue-500/20"
+            >
+              Submit Request
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!-- C3: Location Details / Map (Flex Layout Fix) -->
+      <section
+        class="neu-inset p-6 md:p-12 lg:p-16 rounded-lg md:rounded-[4rem] flex flex-col md:flex-row gap-10 md:gap-16 items-center"
+      >
+        <div class="flex-1 w-full relative group">
+          <div
+            class="absolute -inset-2 bg-blue-600 hover:bg-blue-700 rounded-[2.3rem] md:rounded-[3.3rem] blur opacity-30 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"
+          ></div>
+          <div
+            class="w-full h-[300px] md:h-[400px] neu-flat rounded-lg md:rounded-lg flex items-center justify-center overflow-hidden relative border border-white/20"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=1000&auto=format&fit=crop"
+              class="absolute inset-0 w-full h-full object-cover opacity-60 dark:opacity-40 group-hover:scale-105 transition-transform duration-700"
+              alt="Map Location"
+            />
             <div
-                class="hero-content max-w-3xl z-10 relative backdrop-blur-md bg-white/10 dark:bg-black/20 border border-white/20 p-8 md:p-12 rounded-[2rem] shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]">
-                <h1
-                    class="text-3xl sm:text-4xl md:text-6xl font-black mb-4 md:mb-6 text-white drop-shadow-md tracking-tight px-2">
-                    Get in Touch</h1>
-                <p class="text-base md:text-2xl text-white/90 drop-shadow-md font-bold px-2">We're perfectly prepared to
-                    answer your questions and welcome your family.</p>
+              class="relative z-10 w-16 h-16 md:w-24 md:h-24 neu-btn rounded-full text-red-500 flex items-center justify-center text-3xl md:text-4xl shadow-2xl bg-white/20 dark:bg-black/40 backdrop-blur-md"
+            >
+              <i class="fas fa-map-marker-alt drop-shadow-md"></i>
             </div>
-        </header>
+          </div>
+        </div>
+        <div class="flex-1 text-center md:text-left">
+          <h2
+            class="text-3xl md:text-5xl font-black mb-6 md:mb-8 neu-text text-blue-700 dark:text-blue-400"
+          >
+            Our Premium Campus
+          </h2>
+          <p
+            class="text-lg md:text-2xl opacity-90 leading-relaxed md:leading-loose font-extrabold mb-6 md:mb-8 tracking-wide"
+          >
+            1234 Lumina Parkway<br />Innovation District<br />Techville, TX
+            75001
+          </p>
+          <p class="opacity-80 text-sm md:text-lg font-bold leading-relaxed">
+            Located exclusively off Highway 1, featuring dedicated, perfectly
+            serene drop-off zones meticulously designed to minimize sensory
+            overload entirely.
+          </p>
+        </div>
+      </section>
 
-        <!-- C2: Assessment Form (Responsive & Scaled) -->
-        <section class="neu-flat p-6 md:p-12 lg:p-16 rounded-[2rem] md:rounded-[3rem] relative overflow-hidden">
-            <div
-                class="absolute top-0 right-0 w-64 h-64 bg-blue-500 opacity-5 blur-[100px] rounded-full pointer-events-none">
-            </div>
-            <h2
-                class="text-3xl md:text-5xl font-black mb-10 md:mb-16 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400">
-                Assessment Booking Form</h2>
-
-            <form class="max-w-4xl mx-auto space-y-6 md:space-y-10 relative z-10"
-                onsubmit="event.preventDefault(); alert('Assessment Requested successfully! We will contact you shortly.');">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
-                    <div>
-                        <label
-                            class="block text-xs md:text-sm font-extrabold mb-3 md:mb-4 pl-4 opacity-80 uppercase tracking-widest text-blue-600 dark:text-blue-400">Parent/Guardian
-                            Name</label>
-                        <input type="text"
-                            class="w-full neu-inset p-4 md:p-6 rounded-[1.5rem] md:rounded-[2rem] bg-transparent outline-none focus:ring-4 focus:ring-blue-500/30 transition-all font-bold text-sm md:text-lg"
-                            required>
-                    </div>
-                    <div>
-                        <label
-                            class="block text-xs md:text-sm font-extrabold mb-3 md:mb-4 pl-4 opacity-80 uppercase tracking-widest text-blue-600 dark:text-blue-400">Email
-                            Address</label>
-                        <input type="email"
-                            class="w-full neu-inset p-4 md:p-6 rounded-[1.5rem] md:rounded-[2rem] bg-transparent outline-none focus:ring-4 focus:ring-blue-500/30 transition-all font-bold text-sm md:text-lg"
-                            required>
-                    </div>
-                    <div>
-                        <label
-                            class="block text-xs md:text-sm font-extrabold mb-3 md:mb-4 pl-4 opacity-80 uppercase tracking-widest text-blue-600 dark:text-blue-400">Phone
-                            Number</label>
-                        <input type="tel"
-                            class="w-full neu-inset p-4 md:p-6 rounded-[1.5rem] md:rounded-[2rem] bg-transparent outline-none focus:ring-4 focus:ring-blue-500/30 transition-all font-bold text-sm md:text-lg"
-                            required>
-                    </div>
-                    <div>
-                        <label
-                            class="block text-xs md:text-sm font-extrabold mb-3 md:mb-4 pl-4 opacity-80 uppercase tracking-widest text-blue-600 dark:text-blue-400">Child's
-                            Age</label>
-                        <input type="number"
-                            class="w-full neu-inset p-4 md:p-6 rounded-[1.5rem] md:rounded-[2rem] bg-transparent outline-none focus:ring-4 focus:ring-blue-500/30 transition-all font-bold text-sm md:text-lg"
-                            required>
-                    </div>
-                </div>
-                <div>
-                    <label
-                        class="block text-xs md:text-sm font-extrabold mb-3 md:mb-4 pl-4 opacity-80 uppercase tracking-widest text-blue-600 dark:text-blue-400">Primary
-                        Concern / Area of Interest</label>
-                    <div class="relative">
-                        <select
-                            class="w-full neu-inset p-4 md:p-6 rounded-[1.5rem] md:rounded-[2rem] bg-transparent outline-none focus:ring-4 focus:ring-blue-500/30 transition-all font-bold text-sm md:text-lg appearance-none cursor-pointer">
-                            <option value="" disabled selected class="dark:text-black">Select an elite option</option>
-                            <option value="early" class="dark:text-black">Early Intervention</option>
-                            <option value="learning" class="dark:text-black">Learning Disabilities</option>
-                            <option value="therapy" class="dark:text-black">Speech / Occupational Therapy</option>
-                            <option value="other" class="dark:text-black">Other Needs</option>
-                        </select>
-                        <i
-                            class="fas fa-chevron-down absolute right-6 md:right-8 top-1/2 -translate-y-1/2 pointer-events-none text-blue-500"></i>
-                    </div>
-                </div>
-                <div>
-                    <label
-                        class="block text-xs md:text-sm font-extrabold mb-3 md:mb-4 pl-4 opacity-80 uppercase tracking-widest text-blue-600 dark:text-blue-400">Additional
-                        Details</label>
-                    <textarea rows="4"
-                        class="w-full neu-inset p-4 md:p-6 rounded-[1.5rem] md:rounded-[2rem] bg-transparent outline-none focus:ring-4 focus:ring-blue-500/30 transition-all font-bold text-sm md:text-lg leading-relaxed"></textarea>
-                </div>
-                <div class="text-center pt-6 md:pt-8">
-                    <button type="submit"
-                        class="neu-btn px-10 md:px-16 py-4 md:py-6 font-black text-lg md:text-2xl text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 transition-all w-full md:w-auto uppercase tracking-widest shadow-xl rounded-full hover:scale-105 border border-blue-500/20">Submit
-                        Request</button>
-                </div>
-            </form>
-        </section>
-
-        <!-- C3: Location Details / Map (Flex Layout Fix) -->
-        <section
-            class="neu-inset p-6 md:p-12 lg:p-16 rounded-[2rem] md:rounded-[4rem] flex flex-col md:flex-row gap-10 md:gap-16 items-center">
-            <div class="flex-1 w-full relative group">
-                <div
-                    class="absolute -inset-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-[2.3rem] md:rounded-[3.3rem] blur opacity-30 group-hover:opacity-50 transition duration-1000 group-hover:duration-200">
-                </div>
-                <div
-                    class="w-full h-[300px] md:h-[400px] neu-flat rounded-[2rem] md:rounded-[3rem] flex items-center justify-center overflow-hidden relative border border-white/20">
-                    <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=1000&auto=format&fit=crop"
-                        class="absolute inset-0 w-full h-full object-cover opacity-60 dark:opacity-40 group-hover:scale-105 transition-transform duration-700"
-                        alt="Map Location">
-                    <div
-                        class="relative z-10 w-16 h-16 md:w-24 md:h-24 neu-btn rounded-full text-red-500 flex items-center justify-center text-3xl md:text-4xl shadow-2xl bg-white/20 dark:bg-black/40 backdrop-blur-md">
-                        <i class="fas fa-map-marker-alt drop-shadow-md"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="flex-1 text-center md:text-left">
-                <h2
-                    class="text-3xl md:text-5xl font-black mb-6 md:mb-8 neu-text bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-500">
-                    Our Premium Campus</h2>
-                <p
-                    class="text-lg md:text-2xl opacity-90 leading-relaxed md:leading-loose font-extrabold mb-6 md:mb-8 tracking-wide">
-                    1234 Lumina Parkway<br>Innovation District<br>Techville, TX 75001</p>
-                <p class="opacity-80 text-sm md:text-lg font-bold leading-relaxed">Located exclusively off Highway 1,
-                    featuring dedicated, perfectly serene drop-off zones meticulously designed to minimize sensory
-                    overload entirely.</p>
-            </div>
-        </section>
-
-        <!-- C4: Contact Info (Interactive Cards) -->
-        <section class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-            <div
-                class="neu-flat p-8 md:p-12 rounded-[2rem] md:rounded-[3rem] flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6 md:gap-8 hover:-translate-y-2 transition-transform duration-300 group relative overflow-hidden">
-                <div
-                    class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-400 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity">
-                </div>
-                <div
-                    class="w-20 h-20 md:w-24 md:h-24 neu-inset rounded-full flex items-center justify-center flex-shrink-0 text-3xl md:text-4xl text-blue-500 group-hover:scale-110 transition-transform">
-                    <i class="fas fa-phone"></i>
-                </div>
-                <div>
-                    <h4
-                        class="font-black text-2xl md:text-3xl mb-2 md:mb-3 group-hover:text-blue-500 transition-colors">
-                        Call Us</h4>
-                    <p class="opacity-80 font-extrabold text-lg md:text-2xl tracking-wide">+1 (800) 555-0199</p>
-                </div>
-            </div>
-            <div
-                class="neu-flat p-8 md:p-12 rounded-[2rem] md:rounded-[3rem] flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6 md:gap-8 hover:-translate-y-2 transition-transform duration-300 group relative overflow-hidden">
-                <div
-                    class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-green-400 to-green-600 opacity-0 group-hover:opacity-100 transition-opacity">
-                </div>
-                <div
-                    class="w-20 h-20 md:w-24 md:h-24 neu-inset rounded-full flex items-center justify-center flex-shrink-0 text-3xl md:text-4xl text-green-500 group-hover:scale-110 transition-transform">
-                    <i class="fas fa-envelope"></i>
-                </div>
-                <div>
-                    <h4
-                        class="font-black text-2xl md:text-3xl mb-2 md:mb-3 group-hover:text-green-500 transition-colors">
-                        Email Us</h4>
-                    <p class="opacity-80 font-extrabold text-base md:text-xl tracking-wide break-all">
-                        admissions@luminacenter.edu</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- C5: Operating Hours (Scaled Typography) -->
-        <section class="neu-inset p-8 md:p-12 lg:p-16 rounded-[2rem] md:rounded-[4rem] relative overflow-hidden">
-            <div class="absolute -bottom-32 -left-32 w-64 h-64 bg-purple-500 opacity-10 blur-[100px] rounded-full">
-            </div>
-            <h2 class="text-3xl md:text-5xl font-black mb-8 md:mb-12 text-center neu-text relative z-10">Operating Hours
-            </h2>
-            <div
-                class="max-w-2xl mx-auto space-y-6 md:space-y-8 font-extrabold text-base md:text-xl opacity-90 relative z-10">
-                <div
-                    class="flex flex-col sm:flex-row justify-between border-b-2 border-gray-300/30 dark:border-gray-700/50 pb-4 items-center gap-2">
-                    <span class="uppercase tracking-widest text-xs md:text-sm opacity-80">Monday - Friday</span>
-                    <span class="text-xl md:text-2xl text-blue-600 dark:text-blue-400">7:30 AM - 6:00 PM</span>
-                </div>
-                <div
-                    class="flex flex-col sm:flex-row justify-between border-b-2 border-gray-300/30 dark:border-gray-700/50 pb-4 items-center gap-2 text-center sm:text-left">
-                    <span class="uppercase tracking-widest text-xs md:text-sm opacity-80">Saturday <span
-                            class="opacity-60 block sm:inline">(Therapy Only)</span></span>
-                    <span class="text-xl md:text-2xl text-green-600 dark:text-green-400">9:00 AM - 1:00 PM</span>
-                </div>
-                <div class="flex flex-col sm:flex-row justify-between pb-4 items-center gap-2 text-red-500">
-                    <span class="uppercase tracking-widest text-xs md:text-sm opacity-80 text-red-500">Sunday</span>
-                    <span class="text-xl md:text-2xl">Closed strictly</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- C6: Emergency Contacts (Refined Layout) -->
-        <section
-            class="neu-flat p-8 md:p-16 rounded-[2rem] md:rounded-[4rem] text-center border-t-4 border-red-500/50 hover:border-red-500 transition-colors duration-500 group relative overflow-hidden">
-            <div
-                class="absolute inset-0 bg-red-500/5 dark:bg-red-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-            </div>
-            <h2
-                class="text-2xl md:text-4xl font-black mb-4 md:mb-6 text-red-500 flex flex-col md:flex-row items-center justify-center gap-3 md:gap-4 relative z-10">
-                <i class="fas fa-exclamation-triangle text-3xl md:text-5xl animate-pulse"></i> Premium After-Hours
-                Support
-            </h2>
+      <!-- C4: Contact Info (Interactive Cards) -->
+      <section class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+        <div
+          class="neu-flat p-8 md:p-12 rounded-lg md:rounded-lg flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6 md:gap-8 hover:-translate-y-2 transition-transform duration-300 group relative overflow-hidden"
+        >
+          <div
+            class="absolute top-0 left-0 w-full h-2 bg-blue-600 hover:bg-blue-700 opacity-0 group-hover:opacity-100 transition-opacity"
+          ></div>
+          <div
+            class="w-20 h-20 md:w-24 md:h-24 neu-inset rounded-full flex items-center justify-center flex-shrink-0 text-3xl md:text-4xl text-blue-500 transition-transform"
+          >
+            <i class="fas fa-phone"></i>
+          </div>
+          <div>
+            <h4
+              class="font-black text-2xl md:text-3xl mb-2 md:mb-3 group-hover:text-blue-500 transition-colors"
+            >
+              Call Us
+            </h4>
             <p
-                class="opacity-80 mb-6 md:mb-8 font-bold text-sm md:text-xl max-w-3xl mx-auto leading-relaxed relative z-10">
-                Exclusively for currently enrolled families experiencing an immediate, critical behavioral or medical
-                concern after standard operating hours.</p>
-            <div
-                class="inline-block neu-inset px-6 md:px-10 py-4 md:py-6 rounded-[1.5rem] md:rounded-[2rem] relative z-10">
-                <p
-                    class="font-black text-xl md:text-3xl font-mono opacity-90 text-red-600 dark:text-red-400 flex items-center gap-3">
-                    <i class="fas fa-phone-alt text-lg md:text-2xl"></i> (800) 555-9111
-                </p>
-            </div>
-        </section>
+              class="opacity-80 font-extrabold text-lg md:text-2xl tracking-wide"
+            >
+              +1 (800) 555-0199
+            </p>
+          </div>
+        </div>
+        <div
+          class="neu-flat p-8 md:p-12 rounded-lg md:rounded-lg flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6 md:gap-8 hover:-translate-y-2 transition-transform duration-300 group relative overflow-hidden"
+        >
+          <div
+            class="absolute top-0 left-0 w-full h-2 bg-blue-600 hover:bg-blue-700 opacity-0 group-hover:opacity-100 transition-opacity"
+          ></div>
+          <div
+            class="w-20 h-20 md:w-24 md:h-24 neu-inset rounded-full flex items-center justify-center flex-shrink-0 text-3xl md:text-4xl text-green-500 transition-transform"
+          >
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div>
+            <h4
+              class="font-black text-2xl md:text-3xl mb-2 md:mb-3 group-hover:text-green-500 transition-colors"
+            >
+              Email Us
+            </h4>
+            <p
+              class="opacity-80 font-extrabold text-base md:text-xl tracking-wide break-all"
+            >
+              admissions@luminacenter.edu
+            </p>
+          </div>
+        </div>
+      </section>
 
+      <!-- C5: Operating Hours (Scaled Typography) -->
+      <section
+        class="neu-inset p-8 md:p-12 lg:p-16 rounded-lg md:rounded-[4rem] relative overflow-hidden"
+      >
+        <div
+          class="absolute -bottom-32 -left-32 w-64 h-64 bg-purple-500 opacity-10 blur-[100px] rounded-full"
+        ></div>
+        <h2
+          class="text-3xl md:text-5xl font-black mb-8 md:mb-12 text-center neu-text relative z-10"
+        >
+          Operating Hours
+        </h2>
+        <div
+          class="max-w-2xl mx-auto space-y-6 md:space-y-8 font-extrabold text-base md:text-xl opacity-90 relative z-10"
+        >
+          <div
+            class="flex flex-col sm:flex-row justify-between border-b-2 border-gray-300/30 dark:border-gray-700/50 pb-4 items-center gap-2"
+          >
+            <span
+              class="uppercase tracking-widest text-xs md:text-sm opacity-80"
+              >Monday - Friday</span
+            >
+            <span class="text-xl md:text-2xl text-blue-600 dark:text-blue-400"
+              >7:30 AM - 6:00 PM</span
+            >
+          </div>
+          <div
+            class="flex flex-col sm:flex-row justify-between border-b-2 border-gray-300/30 dark:border-gray-700/50 pb-4 items-center gap-2 text-center sm:text-left"
+          >
+            <span
+              class="uppercase tracking-widest text-xs md:text-sm opacity-80"
+              >Saturday
+              <span class="opacity-60 block sm:inline"
+                >(Therapy Only)</span
+              ></span
+            >
+            <span class="text-xl md:text-2xl text-green-600 dark:text-green-400"
+              >9:00 AM - 1:00 PM</span
+            >
+          </div>
+          <div
+            class="flex flex-col sm:flex-row justify-between pb-4 items-center gap-2 text-red-500"
+          >
+            <span
+              class="uppercase tracking-widest text-xs md:text-sm opacity-80 text-red-500"
+              >Sunday</span
+            >
+            <span class="text-xl md:text-2xl">Closed strictly</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- C6: Emergency Contacts (Refined Layout) -->
+      <section
+        class="neu-flat p-8 md:p-16 rounded-lg md:rounded-[4rem] text-center border-t-4 border-red-500/50 hover:border-red-500 transition-colors duration-500 group relative overflow-hidden"
+      >
+        <div
+          class="absolute inset-0 bg-red-500/5 dark:bg-red-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+        ></div>
+        <h2
+          class="text-2xl md:text-4xl font-black mb-4 md:mb-6 text-red-500 flex flex-col md:flex-row items-center justify-center gap-3 md:gap-4 relative z-10"
+        >
+          <i
+            class="fas fa-exclamation-triangle text-3xl md:text-5xl animate-pulse"
+          ></i>
+          Premium After-Hours Support
+        </h2>
+        <p
+          class="opacity-80 mb-6 md:mb-8 font-bold text-sm md:text-xl max-w-3xl mx-auto leading-relaxed relative z-10"
+        >
+          Exclusively for currently enrolled families experiencing an immediate,
+          critical behavioral or medical concern after standard operating hours.
+        </p>
+        <div
+          class="inline-block neu-inset px-6 md:px-10 py-4 md:py-6 rounded-md md:rounded-lg relative z-10"
+        >
+          <p
+            class="font-black text-xl md:text-3xl font-mono opacity-90 text-red-600 dark:text-red-400 flex items-center gap-3"
+          >
+            <i class="fas fa-phone-alt text-lg md:text-2xl"></i> (800) 555-9111
+          </p>
+        </div>
+      </section>
     </main>
 
     <!-- Ultra-Premium Cinematic Bento Footer for Lumina Special Needs Education -->
-        <footer class="bg-white dark:bg-[#1e293b] pt-16 pb-8 mt-24 transition-colors duration-300 relative overflow-hidden shadow-[0_-4px_20px_-2px_rgba(15,23,42,0.05)] border-t border-slate-200 dark:border-slate-800">
-        <!-- Subtle background accent -->
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent opacity-50"></div>
-        
-        <div class="container mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-12 gap-10 mb-12 relative z-10">
-            <!-- Brand & Description -->
-            <div class="md:col-span-4 lg:col-span-5">
-                <a href="index.html" class="flex items-center gap-3 mb-6 inline-flex group">
-                    <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 border border-blue-100 dark:border-blue-800/50 group-hover:scale-110 transition-transform duration-300">
-                        <!-- Same SVG as Navbar -->
-                        <svg class="w-6 h-6 md:w-7 md:h-7" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 2L2 22h20L12 2zm0 4.5l7 14h-14l7-14z" />
-                        </svg>
-                    </div>
-                    <span class="text-3xl font-black text-slate-900 dark:text-white tracking-tight">Lumina</span>
-                </a>
-                <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed max-w-sm mb-8">
-                    Empowering special needs education with compassionate care, modern techniques, and individualized support inside a beautifully inclusive environment.
-                </p>
-                <!-- Social Media -->
-                <div class="flex gap-3">
-                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-[#1877F2] hover:text-white hover:border-[#1877F2] dark:hover:bg-[#1877F2] dark:hover:border-[#1877F2] transition-all duration-300 shadow-sm">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-black hover:text-white hover:border-black dark:hover:bg-white dark:hover:text-black dark:hover:border-white transition-all duration-300 shadow-sm">
-                        <!-- Inline SVG for X to guarantee visibility -->
-                        <svg class="w-[14px] h-[14px] fill-current" viewBox="0 0 1200 1227">
-                          <path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/>
-                        </svg>
-                    </a>
-                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-[#E1306C] hover:text-white hover:border-[#E1306C] dark:hover:bg-[#E1306C] dark:hover:border-[#E1306C] transition-all duration-300 shadow-sm">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-[#0A66C2] hover:text-white hover:border-[#0A66C2] dark:hover:bg-[#0A66C2] dark:hover:border-[#0A66C2] transition-all duration-300 shadow-sm">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                </div>
-            </div>
+    <footer
+      class="bg-white dark:bg-[#1e293b] pt-16 pb-8 mt-24 transition-colors duration-300 relative overflow-hidden shadow-[0_-4px_20px_-2px_rgba(15,23,42,0.05)] border-t border-slate-200 dark:border-slate-800"
+    >
+      <!-- Subtle background accent -->
+      <div
+        class="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-1 bg-blue-600 hover:bg-blue-700 opacity-50"
+      ></div>
 
-            <!-- Quick Links -->
-            <div class="md:col-span-4 lg:col-span-3">
-                <h4 class="font-bold text-slate-900 dark:text-white mb-6 uppercase tracking-wider text-sm flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full bg-blue-500"></span> Quick Links
-                </h4>
-                <ul class="space-y-3 text-sm text-slate-500 dark:text-slate-400 font-medium">
-                    <li><a href="index.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors inline-flex items-center gap-2 group"><i class="fas fa-chevron-right text-[10px] text-slate-300 dark:text-slate-600 group-hover:translate-x-1 transition-transform"></i> Home</a></li>
-                    <li><a href="programs.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors inline-flex items-center gap-2 group"><i class="fas fa-chevron-right text-[10px] text-slate-300 dark:text-slate-600 group-hover:translate-x-1 transition-transform"></i> Programs</a></li>
-                    <li><a href="therapists.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors inline-flex items-center gap-2 group"><i class="fas fa-chevron-right text-[10px] text-slate-300 dark:text-slate-600 group-hover:translate-x-1 transition-transform"></i> Therapists</a></li>
-                    <li><a href="resources.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors inline-flex items-center gap-2 group"><i class="fas fa-chevron-right text-[10px] text-slate-300 dark:text-slate-600 group-hover:translate-x-1 transition-transform"></i> Resources</a></li>
-                </ul>
+      <div
+        class="container mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-12 gap-10 mb-12 relative z-10"
+      >
+        <!-- Brand & Description -->
+        <div class="md:col-span-4 lg:col-span-5">
+          <a
+            href="index.html"
+            class="flex items-center gap-3 mb-6 inline-flex group"
+          >
+            <div
+              class="w-12 h-12 flex items-center justify-center rounded-xl bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 border border-blue-100 dark:border-blue-800/50 transition-transform duration-300"
+            >
+              <!-- Same SVG as Navbar -->
+              <svg
+                class="w-6 h-6 md:w-7 md:h-7"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M12 2L2 22h20L12 2zm0 4.5l7 14h-14l7-14z" />
+              </svg>
             </div>
-
-            <!-- Contact Info -->
-            <div class="md:col-span-4 lg:col-span-4">
-                <h4 class="font-bold text-slate-900 dark:text-white mb-6 uppercase tracking-wider text-sm flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full bg-purple-500"></span> Contact Us
-                </h4>
-                <ul class="space-y-4 text-sm text-slate-500 dark:text-slate-400">
-                    <li class="flex items-start gap-3">
-                        <div class="w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center text-blue-500 shrink-0">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <span class="mt-1.5">123 Education Way,<br>Cityville, ST 12345</span>
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <div class="w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center text-green-500 shrink-0">
-                            <i class="fas fa-phone-alt"></i>
-                        </div>
-                        <a href="tel:+15551234567" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">+1 (555) 123-4567</a>
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <div class="w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center text-purple-500 shrink-0">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <a href="mailto:info@lumina.edu" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">info@lumina.edu</a>
-                    </li>
-                </ul>
-            </div>
+            <span
+              class="text-3xl font-black text-slate-900 dark:text-white tracking-tight"
+              >Lumina</span
+            >
+          </a>
+          <p
+            class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed max-w-sm mb-8"
+          >
+            Empowering special needs education with compassionate care, modern
+            techniques, and individualized support inside a beautifully
+            inclusive environment.
+          </p>
+          <!-- Social Media -->
+          <div class="flex gap-3">
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-10 h-10 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-[#1877F2] hover:text-white hover:border-[#1877F2] dark:hover:bg-[#1877F2] dark:hover:border-[#1877F2] transition-all duration-300 shadow-sm"
+            >
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a
+              href="https://x.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-10 h-10 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-black hover:text-white hover:border-black dark:hover:bg-white dark:hover:text-black dark:hover:border-white transition-all duration-300 shadow-sm"
+            >
+              <!-- Inline SVG for X to guarantee visibility -->
+              <svg
+                class="w-[14px] h-[14px] fill-current"
+                viewBox="0 0 1200 1227"
+              >
+                <path
+                  d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-10 h-10 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-[#E1306C] hover:text-white hover:border-[#E1306C] dark:hover:bg-[#E1306C] dark:hover:border-[#E1306C] transition-all duration-300 shadow-sm"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-10 h-10 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-[#0A66C2] hover:text-white hover:border-[#0A66C2] dark:hover:bg-[#0A66C2] dark:hover:border-[#0A66C2] transition-all duration-300 shadow-sm"
+            >
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
         </div>
 
-        <!-- Copyright -->
-        <div class="container mx-auto px-6 lg:px-12 pt-6 border-t border-slate-100 dark:border-slate-800/60 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-medium text-slate-400 dark:text-slate-500">
-            <p>&copy; 2026 Lumina Education Center. All Rights Reserved.</p>
-            <div class="flex gap-6">
-                <a href="#" class="hover:text-slate-600 dark:hover:text-slate-300 transition-colors">Privacy Policy</a>
-                <a href="#" class="hover:text-slate-600 dark:hover:text-slate-300 transition-colors">Terms of Service</a>
-            </div>
+        <!-- Quick Links -->
+        <div class="md:col-span-4 lg:col-span-3">
+          <h4
+            class="font-bold text-slate-900 dark:text-white mb-6 uppercase tracking-wider text-sm flex items-center gap-2"
+          >
+            <span class="w-2 h-2 rounded-full bg-blue-500"></span> Quick Links
+          </h4>
+          <ul
+            class="space-y-3 text-sm text-slate-500 dark:text-slate-400 font-medium"
+          >
+            <li>
+              <a
+                href="index.html"
+                class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors inline-flex items-center gap-2 group"
+                ><i
+                  class="fas fa-chevron-right text-[10px] text-slate-300 dark:text-slate-600 group-hover:translate-x-1 transition-transform"
+                ></i>
+                Home</a
+              >
+            </li>
+            <li>
+              <a
+                href="programs.html"
+                class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors inline-flex items-center gap-2 group"
+                ><i
+                  class="fas fa-chevron-right text-[10px] text-slate-300 dark:text-slate-600 group-hover:translate-x-1 transition-transform"
+                ></i>
+                Programs</a
+              >
+            </li>
+            <li>
+              <a
+                href="therapists.html"
+                class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors inline-flex items-center gap-2 group"
+                ><i
+                  class="fas fa-chevron-right text-[10px] text-slate-300 dark:text-slate-600 group-hover:translate-x-1 transition-transform"
+                ></i>
+                Therapists</a
+              >
+            </li>
+            <li>
+              <a
+                href="resources.html"
+                class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors inline-flex items-center gap-2 group"
+                ><i
+                  class="fas fa-chevron-right text-[10px] text-slate-300 dark:text-slate-600 group-hover:translate-x-1 transition-transform"
+                ></i>
+                Resources</a
+              >
+            </li>
+          </ul>
         </div>
+
+        <!-- Contact Info -->
+        <div class="md:col-span-4 lg:col-span-4">
+          <h4
+            class="font-bold text-slate-900 dark:text-white mb-6 uppercase tracking-wider text-sm flex items-center gap-2"
+          >
+            <span class="w-2 h-2 rounded-full bg-purple-500"></span> Contact Us
+          </h4>
+          <ul class="space-y-4 text-sm text-slate-500 dark:text-slate-400">
+            <li class="flex items-start gap-3">
+              <div
+                class="w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center text-blue-500 shrink-0"
+              >
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <span class="mt-1.5"
+                >123 Education Way,<br />Cityville, ST 12345</span
+              >
+            </li>
+            <li class="flex items-center gap-3">
+              <div
+                class="w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center text-green-500 shrink-0"
+              >
+                <i class="fas fa-phone-alt"></i>
+              </div>
+              <a
+                href="tel:+15551234567"
+                class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                >+1 (555) 123-4567</a
+              >
+            </li>
+            <li class="flex items-center gap-3">
+              <div
+                class="w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center text-purple-500 shrink-0"
+              >
+                <i class="fas fa-envelope"></i>
+              </div>
+              <a
+                href="mailto:info@lumina.edu"
+                class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                >info@lumina.edu</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div
+        class="container mx-auto px-6 lg:px-12 pt-6 border-t border-slate-100 dark:border-slate-800/60 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-medium text-slate-400 dark:text-slate-500"
+      >
+        <p>&copy; 2026 Lumina Education Center. All Rights Reserved.</p>
+        <div class="flex gap-6">
+          <a
+            href="#"
+            class="hover:text-slate-600 dark:hover:text-slate-300 transition-colors"
+            >Privacy Policy</a
+          >
+          <a
+            href="#"
+            class="hover:text-slate-600 dark:hover:text-slate-300 transition-colors"
+            >Terms of Service</a
+          >
+        </div>
+      </div>
     </footer>
 
     <!-- Script to save theme preference across pages -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const themeBtn = document.getElementById('theme-toggle');
-            const htmlElement = document.documentElement;
+      document.addEventListener("DOMContentLoaded", () => {
+        const themeBtn = document.getElementById("theme-toggle");
+        const htmlElement = document.documentElement;
 
-            if (themeBtn) {
-                themeBtn.addEventListener('click', () => {
-                    if (htmlElement.classList.contains('dark')) {
-                        localStorage.setItem('theme', 'dark');
-                    } else {
-                        localStorage.setItem('theme', 'light');
-                    }
-                });
+        if (themeBtn) {
+          themeBtn.addEventListener("click", () => {
+            if (htmlElement.classList.contains("dark")) {
+              localStorage.setItem("theme", "dark");
+            } else {
+              localStorage.setItem("theme", "light");
             }
-        });
+          });
+        }
+      });
     </script>
     <script src="script.js"></script>
-</body>
-
+  </body>
 </html>
