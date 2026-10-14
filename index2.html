@@ -1,736 +1,911 @@
-<!doctype html>
-<html lang="en" class="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lumina - Home Alt</title>
-    <!-- Custom Favicon -->
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌟</text></svg>"
-    />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              neuBg: { light: "#e0e5ec", dark: "#1a1a2e" },
-            },
-          },
-        },
-      };
-    </script>
-    <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Clinical Hub | Lumina Center for Early Steps & Pediatric Therapy</title>
+  <meta name="description" content="Lumina's specialized Outpatient Clinical Hub provides 1:1 early intervention, sensory integration gym therapy, pediatric feeding therapy, and AAC diagnostic clinics for children ages 18 months to 8 years." />
 
-    <!-- Anti-Flash Theme Script & Smooth Page Load Animation -->
+  <!-- Anti-Splash / Zero-Flash Theme Script (Synchronous Blocking Execution in Head) -->
+  <script>
+    (function () {
+      try {
+        var theme = localStorage.getItem('lumina_theme');
+        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var isDark = theme ? theme === 'dark' : prefersDark;
+        if (isDark) {
+          document.documentElement.classList.add('dark');
+          document.documentElement.style.backgroundColor = '#0B0F19';
+          document.documentElement.style.colorScheme = 'dark';
+        } else {
+          document.documentElement.classList.remove('dark');
+          document.documentElement.style.backgroundColor = '#FFFFFF';
+          document.documentElement.style.colorScheme = 'light';
+        }
+        var dir = localStorage.getItem('lumina_direction') || 'ltr';
+        document.documentElement.setAttribute('dir', dir);
+      } catch (e) {}
+    })();
+  </script>
 
-    <script>
-      if (
-        localStorage.getItem("theme") === "dark" ||
-        (!("theme" in localStorage) &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches)
-      ) {
-        document.documentElement.classList.add("dark");
-      } else {
-        document.documentElement.classList.remove("dark");
+  <!-- Anti-Splash Instant Style Fallback -->
+  <style>
+    html {
+      background-color: #FFFFFF;
+      color-scheme: light;
+    }
+    html.dark {
+      background-color: #0B0F19 !important;
+      color-scheme: dark;
+    }
+    html.dark body {
+      background-color: #0B0F19 !important;
+    }
+  </style>
+
+  <!-- Favicon (Academic & Education Academy Emblem) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%23D97706' d='M16 4L2 12L16 20L28 13.45V23H30V12L16 4ZM7 17.5V23L16 28L25 23V17.5L16 22.5L7 17.5Z'/%3E%3C/svg%3E" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#0F172A',
+              teal: '#0D9488',
+              amber: '#D97706'
+            }
+          }
+        }
       }
-    </script>
-  </head>
+    };
+  </script>
 
-  <body
-    class="bg-neuBg-light dark:bg-neuBg-dark text-gray-800 dark:text-gray-100 transition-colors duration-300 font-sans min-h-screen flex flex-col relative break-words"
-    dir="ltr"
-  >
-    <!-- Premium Moving Particle Animation -->
-    <canvas
-      id="particles-canvas"
-      class="fixed inset-0 z-0 pointer-events-none"
-    ></canvas>
+  <!-- Project High-Contrast Flat Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-theme-primary text-slate-800 dark:text-slate-200 antialiased selection:bg-amber-600 selection:text-white">
 
-    <nav
-      class="sticky top-0 z-50 p-4 w-full bg-neuBg-light/80 dark:bg-neuBg-dark/80 backdrop-blur-md border-b border-gray-300/30 dark:border-gray-800/50 transition-colors duration-300 shadow-sm"
-    >
-      <div class="container mx-auto flex justify-between items-center gap-2">
-        <a
-          href="index.html"
-          class="flex items-center gap-2 xl:gap-3 group shrink-0"
-        >
-          <div
-            class="w-10 h-10 md:w-12 md:h-12 neu-btn flex items-center justify-center transition-transform duration-500 text-blue-600 dark:text-blue-400 relative"
-          >
-            <svg
-              class="w-6 h-6 md:w-7 md:h-7 relative z-10"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path d="M12 2L2 22h20L12 2zm0 4.5l7 14h-14l7-14z" />
+  <!-- ==========================================================================
+       GLOBAL NAVBAR (Identical across all pages)
+       Desktop > 1024px. Strictly Hamburger < 1024px.
+       ========================================================================== -->
+  <header class="sticky top-0 z-50 bg-theme-primary border-b border-theme shadow-sm transition-colors duration-200">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 sm:h-20 gap-4 lg:gap-6 xl:gap-8">
+        
+        <!-- Brand Logo & Name -->
+        <a href="index.html" class="flex items-center gap-2.5 sm:gap-3 group focus:outline-none shrink-0" aria-label="Lumina Home">
+          <div class="w-10 h-10 sm:w-11 sm:h-11 bg-slate-900 dark:bg-amber-500 text-white dark:text-slate-950 flex items-center justify-center font-black text-xl border border-slate-900 dark:border-amber-400 shrink-0">
+            <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/>
             </svg>
           </div>
-          <span
-            class="text-xl md:text-2xl xl:text-3xl font-extrabold tracking-tighter bg-clip-text text-transparent bg-blue-600 dark:from-blue-400 dark:to-blue-400"
-            >Lumina</span
-          >
+          <span class="text-xl sm:text-2xl font-black tracking-wider text-slate-900 dark:text-slate-50 uppercase">LUMINA</span>
         </a>
 
-        <div class="hidden lg:flex items-center gap-1 xl:gap-6 font-bold">
-          <div class="relative group">
+        <!-- Desktop Navigation (> 1024px) -->
+        <nav class="hidden lg:flex items-center gap-3 lg:gap-4 xl:gap-7" aria-label="Main Navigation">
+          <!-- Combined Home 1 & Home 2 Dropdown -->
+          <div class="relative group home-nav-dropdown">
             <button
-              class="dropdown-btn flex items-center gap-1 hover:text-blue-600 dark:hover:text-blue-400 transition-colors px-2 py-2 xl:p-3 neu-btn text-[11px] xl:text-sm uppercase tracking-wide"
+              type="button"
+              class="nav-link-item active flex items-center gap-1.5 whitespace-nowrap text-xs xl:text-sm font-bold tracking-wide uppercase text-slate-700 dark:text-slate-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors py-2 border-b-2 border-transparent focus:outline-none"
+              aria-current="page"
             >
-              Home
-              <i
-                class="fas fa-chevron-down text-[9px] xl:text-xs ml-1 opacity-70"
-              ></i>
+              <span>Home</span>
+              <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
             </button>
-            <div
-              class="dropdown-menu absolute hidden top-full left-0 mt-4 w-40 neu-flat p-2 flex-col gap-2 z-50"
-            >
-              <a
-                href="index.html"
-                class="p-3 hover:text-blue-500 transition-colors block text-center neu-btn text-sm"
-                >Home - Classic</a
-              >
-              <a
-                href="index2.html"
-                class="p-3 hover:text-blue-500 transition-colors block text-center neu-btn text-sm"
-                >Home - Modern</a
-              >
+            <div class="dropdown-menu home-nav-popover absolute top-full left-0 mt-1 w-52 bg-theme-primary border-2 border-theme shadow-xl py-2 hidden group-hover:block group-focus-within:block z-50">
+              <div class="px-4 py-1 text-[10px] font-extrabold uppercase tracking-widest text-slate-400 dark:text-slate-500 border-b border-theme/60 mb-1">
+                Select Campus
+              </div>
+              <a href="index.html" class="flex items-center justify-between px-4 py-2 text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-amber-600 dark:hover:text-amber-400 transition-colors">
+                <span>Home 1: Campus</span>
+                <span class="text-[9px] font-semibold text-amber-600 dark:text-amber-400 bg-amber-500/10 px-1.5 py-0.5">Main</span>
+              </a>
+              <a href="index2.html" class="flex items-center justify-between px-4 py-2 text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-amber-600 dark:hover:text-amber-400 transition-colors">
+                <span>Home 2: Clinical Hub</span>
+                <span class="text-[9px] font-semibold text-teal-600 dark:text-teal-400 bg-teal-500/10 px-1.5 py-0.5">Early Steps</span>
+              </a>
             </div>
           </div>
-          <a
-            href="programs.html"
-            class="px-2 py-2 xl:p-3 neu-btn hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-[11px] xl:text-sm uppercase tracking-wide"
-            >Programs</a
-          >
-          <a
-            href="therapists.html"
-            class="px-2 py-2 xl:p-3 neu-btn hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-[11px] xl:text-sm uppercase tracking-wide"
-            >Therapists</a
-          >
-          <a
-            href="resources.html"
-            class="px-2 py-2 xl:p-3 neu-btn hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-[11px] xl:text-sm uppercase tracking-wide"
-            >Resources</a
-          >
-          <a
-            href="contact.html"
-            class="px-2 py-2 xl:p-3 neu-btn hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-[11px] xl:text-sm uppercase tracking-wide"
-            >Contact</a
-          >
-        </div>
 
-        <div class="hidden lg:flex items-center gap-2 xl:gap-5 shrink-0">
-          <button
-            class="dir-toggle neu-btn w-8 h-8 xl:w-10 xl:h-10 flex items-center justify-center text-sm xl:text-lg hover:text-blue-500 transition-colors"
-            title="Toggle RTL/LTR"
-          >
-            <i class="fas fa-exchange-alt"></i>
+          <a href="about.html" class="nav-link-item whitespace-nowrap text-xs xl:text-sm font-bold tracking-wide uppercase text-slate-700 dark:text-slate-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors py-2 border-b-2 border-transparent">About Us</a>
+          <a href="programs.html" class="nav-link-item whitespace-nowrap text-xs xl:text-sm font-bold tracking-wide uppercase text-slate-700 dark:text-slate-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors py-2 border-b-2 border-transparent">Programs</a>
+          <a href="therapists.html" class="nav-link-item whitespace-nowrap text-xs xl:text-sm font-bold tracking-wide uppercase text-slate-700 dark:text-slate-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors py-2 border-b-2 border-transparent">Therapists</a>
+          <a href="resources.html" class="nav-link-item whitespace-nowrap text-xs xl:text-sm font-bold tracking-wide uppercase text-slate-700 dark:text-slate-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors py-2 border-b-2 border-transparent">Resources</a>
+          <a href="contact.html" class="nav-link-item whitespace-nowrap text-xs xl:text-sm font-bold tracking-wide uppercase text-slate-700 dark:text-slate-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors py-2 border-b-2 border-transparent">Contact</a>
+        </nav>
+
+        <!-- Desktop Utilities & CTA (> 1024px) -->
+        <div class="hidden lg:flex items-center gap-2 xl:gap-3 shrink-0">
+          <!-- RTL / LTR Toggle with Double Arrow Icon -->
+          <button class="rtl-toggle-btn p-1.5 xl:p-2 border border-theme text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center justify-center shrink-0" title="Toggle Direction (RTL / LTR)" aria-label="Toggle Direction (RTL / LTR)">
+            <svg class="w-4 h-4 xl:w-5 xl:h-5 rtl-flip" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+            </svg>
           </button>
-          <button
-            class="theme-toggle neu-btn w-8 h-8 xl:w-10 xl:h-10 flex items-center justify-center text-sm xl:text-lg hover:text-blue-500 transition-colors"
-            title="Toggle Theme"
-          >
-            <i class="fas fa-moon dark:hidden"></i>
-            <i class="fas fa-sun hidden dark:block text-yellow-400"></i>
+
+          <!-- Dark / Light Theme Toggle -->
+          <button class="theme-toggle-btn p-1.5 xl:p-2 border border-theme text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center justify-center shrink-0" title="Toggle Dark/Light Mode" aria-label="Toggle Dark/Light Mode">
+            <svg class="icon-sun w-4 h-4 xl:w-5 xl:h-5 hidden text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+            <svg class="icon-moon w-4 h-4 xl:w-5 xl:h-5 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
           </button>
-          <a
-            href="signin.html"
-            class="px-2 py-2 font-bold hover:text-blue-600 transition-colors text-xs xl:text-sm"
-            >Sign In</a
-          >
-          <a
-            href="signup.html"
-            class="neu-inset px-4 py-2 xl:px-6 xl:py-2.5 font-extrabold text-white bg-blue-600 hover:bg-blue-700 hover:scale-105 transition-all duration-300 rounded-full uppercase tracking-wide text-[10px] xl:text-xs shadow-lg shadow-blue-500/30 whitespace-nowrap"
-            >Get Started</a
-          >
-        </div>
 
-        <!-- Mobile Hamburger -->
-        <button
-          class="mobile-menu-btn lg:hidden neu-btn w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-lg md:text-xl text-blue-600 dark:text-blue-400 shrink-0"
-        >
-          <i class="fas fa-bars"></i>
-        </button>
-      </div>
-
-      <!-- Mobile Menu (Fixed with scrollable height) -->
-      <div
-        class="mobile-menu hidden lg:hidden mt-4 flex-col gap-2 neu-inset p-5 rounded-3xl w-full text-base max-h-[75vh] overflow-y-auto"
-      >
-        <a
-          href="index.html"
-          class="neu-flat p-3 text-center font-extrabold block"
-          >Home - Classic</a
-        >
-        <a
-          href="index2.html"
-          class="neu-flat p-3 text-center font-extrabold block"
-          >Home - Modern</a
-        >
-        <a
-          href="programs.html"
-          class="neu-flat p-3 text-center font-extrabold block"
-          >Programs</a
-        >
-        <a
-          href="therapists.html"
-          class="neu-flat p-3 text-center font-extrabold block"
-          >Therapists & Educators</a
-        >
-        <a
-          href="resources.html"
-          class="neu-flat p-3 text-center font-extrabold block"
-          >Parent Resources</a
-        >
-        <a
-          href="contact.html"
-          class="neu-flat p-3 text-center font-extrabold block"
-          >Contact</a
-        >
-
-        <!-- Visible Mobile Toggles -->
-        <div class="flex gap-3 p-1 mt-4 border-t border-gray-400/20 pt-5">
-          <button
-            class="mobile-dir-toggle neu-btn p-3 flex-1 font-bold flex items-center justify-center text-sm"
-          >
-            <i class="fas fa-exchange-alt mr-2"></i> RTL/LTR
-          </button>
-          <button
-            class="mobile-theme-toggle neu-btn p-3 flex-1 font-bold flex items-center justify-center text-sm"
-          >
-            <i class="fas fa-moon dark:hidden mr-2"></i>
-            <i class="fas fa-sun hidden dark:inline mr-2 text-yellow-400"></i>
-            Theme
-          </button>
-        </div>
-
-        <div class="flex gap-3 p-1 mt-2">
-          <a
-            href="signin.html"
-            class="neu-btn p-3 text-center flex-1 font-bold text-sm"
-            >Sign In</a
-          >
-          <a
-            href="signup.html"
-            class="neu-inset p-3 text-center flex-1 text-white bg-blue-600 font-extrabold text-sm"
-            >Get Started</a
-          >
-        </div>
-      </div>
-    </nav>
-
-    <main
-      class="flex-grow relative z-10 flex flex-col gap-10 md:gap-16 py-8 md:py-10 container mx-auto px-4 lg:px-8 max-w-7xl"
-    >
-      <!-- C1: Hero Alternative (Glassmorphism & Proper Scaling) -->
-      <header
-        class="rounded-lg md:rounded-lg overflow-hidden neu-flat min-h-[450px] md:h-[650px] flex items-center justify-center text-center p-4 md:p-6 relative bg-cover bg-center shadow-2xl"
-        style="
-          background-image: url(&quot;https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1600&auto=format&fit=crop&quot;);
-        "
-      >
-        <div
-          class="absolute inset-0 bg-black/40 dark:bg-black/60 backdrop-blur-[2px] z-0 mix-blend-overlay"
-        ></div>
-
-        <!-- Frosted Glass Card Layer -->
-        <div
-          class="hero-content max-w-4xl z-10 relative backdrop-blur-md bg-white/10 dark:bg-black/20 border border-white/20 p-8 md:p-12 rounded-lg md:rounded-lg shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]"
-        >
-          <h1
-            class="text-4xl sm:text-5xl md:text-7xl font-black mb-4 md:mb-6 text-white drop-shadow-md tracking-tight px-2"
-          >
-            Unlocking Every Potential
-          </h1>
-          <p
-            class="text-base md:text-xl text-white/90 drop-shadow-md mb-8 md:mb-10 font-bold leading-relaxed px-2"
-          >
-            A luxury sanctuary for special needs education, flawlessly combining
-            tech with deep empathy.
-          </p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="Contact.html"
-              class="px-8 md:px-10 py-4 font-extrabold text-sm md:text-base bg-white dark:bg-slate-800 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-slate-700 uppercase tracking-widest transition-colors rounded-lg inline-block mx-auto sm:mx-0 shadow-lg"
-              >Join Us Today
-            </a>
-          </div>
-        </div>
-      </header>
-
-      <!-- C2: Welcome Message (Gradient Text & Scaled Padding) -->
-      <section
-        class="neu-flat p-8 md:p-16 rounded-lg md:rounded-lg text-center border-t border-white/20 dark:border-white/5 relative overflow-hidden"
-      >
-        <div
-          class="absolute -top-32 -left-32 w-64 h-64 bg-blue-500 opacity-10 blur-[100px] rounded-full"
-        ></div>
-        <h2
-          class="text-3xl md:text-5xl font-black mb-6 md:mb-8 text-blue-700 dark:text-blue-400 relative z-10"
-        >
-          Welcome to Lumina Center
-        </h2>
-        <div
-          class="w-20 h-1 bg-blue-600 mb-6 md:mb-8 mx-auto rounded-full relative z-10"
-        ></div>
-        <p
-          class="text-base md:text-xl opacity-80 max-w-4xl mx-auto leading-relaxed md:leading-loose font-bold relative z-10"
-        >
-          Our approach is not one-size-fits-all. We meticulously assess,
-          understand, and build a customized curriculum around the exact needs
-          of your child, ensuring a completely safe, luxurious, and highly
-          effective learning environment.
-        </p>
-      </section>
-
-      <!-- C3: Core Values (Responsive Grid & Hover Lift) -->
-      <section
-        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8"
-      >
-        <div
-          class="neu-inset p-8 md:p-10 rounded-lg md:rounded-lg text-center group hover:-translate-y-2 transition-all duration-300 relative overflow-hidden"
-        >
-          <div
-            class="absolute top-0 left-0 w-full h-2 bg-blue-600 hover:bg-blue-700"
-          ></div>
-          <i
-            class="fas fa-heart text-5xl md:text-6xl text-red-500 mb-6 md:mb-8 drop-shadow-lg transition-transform"
-          ></i>
-          <h3
-            class="text-xl md:text-2xl font-black mb-2 md:mb-3 group-hover:text-red-500 transition-colors"
-          >
-            Empathy
-          </h3>
-          <p class="opacity-80 text-sm md:text-base font-bold">
-            Understanding before teaching.
-          </p>
-        </div>
-        <div
-          class="neu-inset p-8 md:p-10 rounded-lg md:rounded-lg text-center group hover:-translate-y-2 transition-all duration-300 relative overflow-hidden"
-        >
-          <div
-            class="absolute top-0 left-0 w-full h-2 bg-blue-600 hover:bg-blue-700"
-          ></div>
-          <i
-            class="fas fa-lightbulb text-5xl md:text-6xl text-yellow-500 mb-6 md:mb-8 drop-shadow-lg transition-transform"
-          ></i>
-          <h3
-            class="text-xl md:text-2xl font-black mb-2 md:mb-3 group-hover:text-yellow-500 transition-colors"
-          >
-            Innovation
-          </h3>
-          <p class="opacity-80 text-sm md:text-base font-bold">
-            Latest tech & methods.
-          </p>
-        </div>
-        <div
-          class="neu-inset p-8 md:p-10 rounded-lg md:rounded-lg text-center group hover:-translate-y-2 transition-all duration-300 relative overflow-hidden"
-        >
-          <div
-            class="absolute top-0 left-0 w-full h-2 bg-blue-600 hover:bg-blue-700"
-          ></div>
-          <i
-            class="fas fa-shield-alt text-5xl md:text-6xl text-blue-500 mb-6 md:mb-8 drop-shadow-lg transition-transform"
-          ></i>
-          <h3
-            class="text-xl md:text-2xl font-black mb-2 md:mb-3 group-hover:text-blue-500 transition-colors"
-          >
-            Safety
-          </h3>
-          <p class="opacity-80 text-sm md:text-base font-bold">
-            A secure environment.
-          </p>
-        </div>
-        <div
-          class="neu-inset p-8 md:p-10 rounded-lg md:rounded-lg text-center group hover:-translate-y-2 transition-all duration-300 relative overflow-hidden"
-        >
-          <div
-            class="absolute top-0 left-0 w-full h-2 bg-blue-600 hover:bg-blue-700"
-          ></div>
-          <i
-            class="fas fa-users text-5xl md:text-6xl text-blue-500 mb-6 md:mb-8 drop-shadow-lg transition-transform"
-          ></i>
-          <h3
-            class="text-xl md:text-2xl font-black mb-2 md:mb-3 group-hover:text-blue-500 transition-colors"
-          >
-            Community
-          </h3>
-          <p class="opacity-80 text-sm md:text-base font-bold">
-            Supporting the whole family.
-          </p>
-        </div>
-      </section>
-
-      <!-- C4: Key Impact (Flex Fixes & Image Glow) -->
-      <section
-        class="neu-flat p-6 md:p-12 lg:p-16 rounded-lg md:rounded-lg flex flex-col md:flex-row gap-10 md:gap-16 items-center"
-      >
-        <div class="flex-1 w-full relative group">
-          <div
-            class="absolute -inset-2 bg-blue-600 hover:bg-blue-700 rounded-[1.8rem] md:rounded-[2.3rem] blur opacity-20 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"
-          ></div>
-          <img
-            src="https://images.unsplash.com/photo-1588072432836-e10032774350?w=1000&auto=format&fit=crop"
-            class="relative rounded-md md:rounded-lg neu-inset p-2 md:p-3 w-full object-cover h-64 md:h-96 hover:scale-[1.01] transition-transform duration-500"
-            alt="Impact"
-          />
-        </div>
-        <div class="flex-1 w-full text-center md:text-left">
-          <h2
-            class="text-3xl md:text-5xl font-black mb-8 md:mb-10 text-blue-700 dark:text-blue-400"
-          >
-            Measurable Impact
-          </h2>
-          <ul class="space-y-4 md:space-y-6">
-            <li
-              class="flex flex-col sm:flex-row items-center sm:items-start md:items-center gap-4 sm:gap-6 neu-inset p-5 md:p-6 rounded-md md:rounded-lg hover:scale-[1.02] transition-transform"
-            >
-              <div
-                class="w-12 h-12 md:w-16 md:h-16 neu-flat rounded-full flex-shrink-0 flex items-center justify-center text-blue-500 text-xl md:text-2xl"
-              >
-                <i class="fas fa-arrow-up"></i>
-              </div>
-              <span
-                class="text-lg md:text-xl lg:text-2xl font-extrabold text-center sm:text-left"
-                >95% Goal Achievement Rate</span
-              >
-            </li>
-            <li
-              class="flex flex-col sm:flex-row items-center sm:items-start md:items-center gap-4 sm:gap-6 neu-inset p-5 md:p-6 rounded-md md:rounded-lg hover:scale-[1.02] transition-transform"
-            >
-              <div
-                class="w-12 h-12 md:w-16 md:h-16 neu-flat rounded-full flex-shrink-0 flex items-center justify-center text-blue-500 text-xl md:text-2xl"
-              >
-                <i class="fas fa-arrow-up"></i>
-              </div>
-              <span
-                class="text-lg md:text-xl lg:text-2xl font-extrabold text-center sm:text-left"
-                >Award-Winning Curriculum Design</span
-              >
-            </li>
-            <li
-              class="flex flex-col sm:flex-row items-center sm:items-start md:items-center gap-4 sm:gap-6 neu-inset p-5 md:p-6 rounded-md md:rounded-lg hover:scale-[1.02] transition-transform"
-            >
-              <div
-                class="w-12 h-12 md:w-16 md:h-16 neu-flat rounded-full flex-shrink-0 flex items-center justify-center text-blue-500 text-xl md:text-2xl"
-              >
-                <i class="fas fa-arrow-up"></i>
-              </div>
-              <span
-                class="text-lg md:text-xl lg:text-2xl font-extrabold text-center sm:text-left"
-                >Globally Recognized Therapists</span
-              >
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- C5: Featured Programs Snippet (Gradient Accents) -->
-      <section class="neu-flat p-8 md:p-16 lg:p-20 rounded-lg md:rounded-lg">
-        <h2
-          class="text-3xl md:text-5xl font-black mb-10 md:mb-16 text-center text-blue-700 dark:text-blue-400"
-        >
-          Featured Programs
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-          <div
-            class="neu-inset p-8 md:p-12 rounded-lg md:rounded-lg flex flex-col items-center md:items-start text-center md:text-left group hover:scale-[1.02] transition-transform relative overflow-hidden"
-          >
-            <div
-              class="absolute top-0 left-0 w-full h-1 bg-blue-600 hover:bg-blue-700 opacity-0 group-hover:opacity-100 transition-opacity"
-            ></div>
-            <h3
-              class="text-2xl md:text-3xl font-black mb-4 md:mb-6 group-hover:text-blue-500 transition-colors"
-            >
-              Early Intervention
-            </h3>
-            <p
-              class="opacity-80 mb-6 md:mb-8 font-bold text-base md:text-xl leading-relaxed"
-            >
-              Crucial, highly specialized support during formative years to
-              maximize neuroplasticity and growth.
-            </p>
-            <a
-              href="programs.html"
-              class="neu-btn px-6 md:px-8 py-3 md:py-4 font-black text-sm md:text-lg mt-auto text-blue-600 dark:text-blue-400 hover:scale-105 transition-transform inline-block"
-              >Learn More</a
-            >
-          </div>
-          <div
-            class="neu-inset p-8 md:p-12 rounded-lg md:rounded-lg flex flex-col items-center md:items-start text-center md:text-left group hover:scale-[1.02] transition-transform relative overflow-hidden"
-          >
-            <div
-              class="absolute top-0 left-0 w-full h-1 bg-blue-600 hover:bg-blue-700 opacity-0 group-hover:opacity-100 transition-opacity"
-            ></div>
-            <h3
-              class="text-2xl md:text-3xl font-black mb-4 md:mb-6 group-hover:text-blue-500 transition-colors"
-            >
-              Adolescent Transition
-            </h3>
-            <p
-              class="opacity-80 mb-6 md:mb-8 font-bold text-base md:text-xl leading-relaxed"
-            >
-              Equipping teens with robust life skills, vocational training, and
-              total social independence.
-            </p>
-            <a
-              href="programs.html"
-              class="neu-btn px-6 md:px-8 py-3 md:py-4 font-black text-sm md:text-lg mt-auto text-blue-600 dark:text-blue-400 hover:scale-105 transition-transform inline-block"
-              >Learn More</a
-            >
-          </div>
-        </div>
-      </section>
-
-      <!-- C6: Video Testimonial Placeholder (Responsive Size & Pulse) -->
-      <section
-        class="neu-flat p-3 md:p-4 rounded-lg md:rounded-lg overflow-hidden relative group min-h-[300px] md:min-h-[450px] flex items-center justify-center cursor-pointer"
-      >
-        <div
-          class="absolute inset-0 bg-cover bg-center opacity-80 transition-transform duration-1000 group-hover:scale-105 rounded-md md:rounded-lg"
-          style="background-image: url('https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=1600&auto=format&fit=crop'); margin: 12px md:margin: 16px;"
-        ></div>
-      </section>
-
-      <!-- C8: Final Call (Background Glow & Button Gradient) -->
-      <section
-        class="relative p-10 md:p-24 rounded-lg md:rounded-lg text-center overflow-hidden neu-flat border-t border-white/20 dark:border-white/5"
-      >
-        <div class="absolute inset-0 bg-blue-50 dark:bg-slate-800/50 z-0"></div>
-        <div class="relative z-10">
-          <h2
-            class="text-3xl md:text-5xl font-black mb-6 md:mb-8 text-blue-700 dark:text-blue-400"
-          >
-            Your Elite Journey Starts Here
-          </h2>
-          <p
-            class="opacity-80 mb-10 md:mb-12 max-w-3xl mx-auto text-lg md:text-2xl font-bold leading-relaxed"
-          >
-            We are completely ready to support your family with the utmost care,
-            technology, and professionalism.
-          </p>
-          <a
-            href="signup.html"
-            class="px-10 md:px-16 py-4 md:py-6 font-black text-lg md:text-2xl text-white bg-blue-600 hover:bg-blue-700 transition-all inline-block rounded-full shadow-[0_10px_25px_rgba(168,85,247,0.4)] hover:scale-105 border border-blue-500/20"
-            >Get Started Now</a
-          >
-        </div>
-      </section>
-    </main>
-
-    <!-- Ultra-Premium Cinematic Bento Footer for Lumina Special Needs Education -->
-    <footer
-      class="bg-white dark:bg-[#1e293b] pt-16 pb-8 mt-24 transition-colors duration-300 relative overflow-hidden shadow-[0_-4px_20px_-2px_rgba(15,23,42,0.05)] border-t border-slate-200 dark:border-slate-800"
-    >
-      <!-- Subtle background accent -->
-      <div
-        class="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-1 bg-blue-600 hover:bg-blue-700 opacity-50"
-      ></div>
-
-      <div
-        class="container mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-12 gap-10 mb-12 relative z-10"
-      >
-        <!-- Brand & Description -->
-        <div class="md:col-span-4 lg:col-span-5">
-          <a
-            href="index.html"
-            class="flex items-center gap-3 mb-6 inline-flex group"
-          >
-            <div
-              class="w-12 h-12 flex items-center justify-center rounded-xl bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 border border-blue-100 dark:border-blue-800/50 transition-transform duration-300"
-            >
-              <!-- Same SVG as Navbar -->
-              <svg
-                class="w-6 h-6 md:w-7 md:h-7"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path d="M12 2L2 22h20L12 2zm0 4.5l7 14h-14l7-14z" />
-              </svg>
-            </div>
-            <span
-              class="text-3xl font-black text-slate-900 dark:text-white tracking-tight"
-              >Lumina</span
-            >
+          <!-- CTA Button -->
+          <a href="contact.html#intake-section" class="btn-primary !py-2 !px-3 xl:!py-2.5 xl:!px-5 text-xs xl:text-sm whitespace-nowrap">
+            <span>Schedule Intake</span>
           </a>
-          <p
-            class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed max-w-sm mb-8"
-          >
-            Empowering special needs education with compassionate care, modern
-            techniques, and individualized support inside a beautifully
-            inclusive environment.
-          </p>
-          <!-- Social Media -->
-          <div class="flex gap-3">
-            <a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="w-10 h-10 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-[#1877F2] hover:text-white hover:border-[#1877F2] dark:hover:bg-[#1877F2] dark:hover:border-[#1877F2] transition-all duration-300 shadow-sm"
-            >
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a
-              href="https://x.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="w-10 h-10 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-black hover:text-white hover:border-black dark:hover:bg-white dark:hover:text-black dark:hover:border-white transition-all duration-300 shadow-sm"
-            >
-              <!-- Inline SVG for X to guarantee visibility -->
-              <svg
-                class="w-[14px] h-[14px] fill-current"
-                viewBox="0 0 1200 1227"
-              >
-                <path
-                  d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"
-                />
+        </div>
+
+        <!-- Mobile Controls (< 1024px) -->
+        <div class="flex items-center gap-1.5 sm:gap-2 lg:hidden">
+          <button class="rtl-toggle-btn p-2 border border-theme text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center justify-center" title="Toggle Direction (RTL / LTR)" aria-label="Toggle Direction (RTL / LTR)">
+            <svg class="w-4 h-4 rtl-flip" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+            </svg>
+          </button>
+
+          <button class="theme-toggle-btn p-2 border border-theme text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center justify-center" title="Toggle Dark/Light Mode" aria-label="Toggle Dark/Light Mode">
+            <svg class="icon-sun w-4 h-4 hidden text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+            <svg class="icon-moon w-4 h-4 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+          </button>
+
+          <button id="mobile-menu-toggle" class="p-2 border border-theme text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center justify-center" aria-label="Open Mobile Menu" title="Open Mobile Menu">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Overlay (< 1024px) -->
+    <div id="mobile-menu-backdrop" class="fixed inset-0 bg-black/60 z-40 hidden lg:hidden"></div>
+    <div id="mobile-menu-drawer" class="fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-theme-primary border-l border-theme z-50 p-6 flex flex-col justify-between hidden lg:hidden overflow-y-auto">
+      <div>
+        <div class="flex items-center justify-between pb-6 border-b border-theme">
+          <a href="index.html" class="flex items-center gap-2.5 focus:outline-none" aria-label="Lumina Home">
+            <div class="w-9 h-9 bg-slate-900 dark:bg-amber-500 text-white dark:text-slate-950 flex items-center justify-center font-black text-lg border border-slate-900 dark:border-amber-400 shrink-0">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/>
               </svg>
+            </div>
+            <span class="text-xl font-black tracking-wider text-slate-900 dark:text-slate-50 uppercase">LUMINA</span>
+          </a>
+          <button id="mobile-menu-close" class="p-2 text-slate-500 hover:text-slate-900 dark:hover:text-slate-100" aria-label="Close Mobile Menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+
+        <nav class="flex flex-col gap-2 py-6" aria-label="Mobile Navigation Links">
+          <!-- Combined Mobile Home Selection Box -->
+          <div class="pb-3 mb-2 border-b border-theme">
+            <label class="block text-[10px] font-extrabold uppercase tracking-widest text-slate-500 dark:text-slate-400 mb-1.5">Campus Selection</label>
+            <div class="relative">
+              <select
+                id="mobile-home-selector"
+                aria-label="Select Campus Layout"
+                class="w-full appearance-none bg-theme-primary text-xs font-bold tracking-wide uppercase py-2 pl-3 pr-8 border border-theme hover:border-amber-500 focus:outline-none cursor-pointer"
+                onchange="if(this.value) window.location.href=this.value;"
+              >
+                <option value="index.html">Home 1: Main Campus</option>
+                <option value="index2.html" selected>Home 2: Clinical Hub</option>
+              </select>
+              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-slate-500 dark:text-slate-400">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+              </div>
+            </div>
+          </div>
+
+          <a href="about.html" class="nav-link-item text-sm font-bold uppercase tracking-wide text-slate-800 dark:text-slate-200 hover:text-amber-600 py-2">About Us</a>
+          <a href="programs.html" class="nav-link-item text-sm font-bold uppercase tracking-wide text-slate-800 dark:text-slate-200 hover:text-amber-600 py-2">Programs</a>
+          <a href="therapists.html" class="nav-link-item text-sm font-bold uppercase tracking-wide text-slate-800 dark:text-slate-200 hover:text-amber-600 py-2">Therapists</a>
+          <a href="resources.html" class="nav-link-item text-sm font-bold uppercase tracking-wide text-slate-800 dark:text-slate-200 hover:text-amber-600 py-2">Resources</a>
+          <a href="contact.html" class="nav-link-item text-sm font-bold uppercase tracking-wide text-slate-800 dark:text-slate-200 hover:text-amber-600 py-2">Contact</a>
+        </nav>
+      </div>
+
+      <div class="pt-6 border-t border-theme flex flex-col gap-4">
+        <div class="flex items-center justify-between gap-3">
+          <button class="rtl-toggle-btn flex-1 py-2.5 border border-theme text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 flex items-center justify-center gap-2">
+            <svg class="w-4 h-4 rtl-flip" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+            <span>Direction: <span class="rtl-label">RTL</span></span>
+          </button>
+          <button class="theme-toggle-btn flex-1 py-2.5 border border-theme text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">
+            <span>Theme: <span class="theme-label">Dark</span></span>
+          </button>
+        </div>
+        <div>
+          <a href="contact.html#intake-section" class="btn-primary w-full text-center !py-3 text-xs font-bold uppercase tracking-wider block">Schedule Intake</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       CONTAINER 1: CLINICAL HERO (Distinct layout from Home 1)
+       Early intervention focus, Ages 18m – 8y, 1:1 Clinical Outpatient Excellence
+       ========================================================================== -->
+  <section class="hero-wrapper min-h-[520px] lg:min-h-[600px] flex items-center border-b border-theme relative" style="background-image: url('https://images.unsplash.com/photo-1576765608866-5b51046452be?auto=format&fit=crop&w=1600&q=80');">
+    <div class="hero-overlay"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24 relative z-10 w-full">
+      <div class="max-w-3xl">
+        
+        <div class="inline-flex items-center gap-2 px-3 py-1 bg-teal-500/10 dark:bg-teal-400/10 border border-teal-600/30 text-teal-700 dark:text-teal-400 text-xs font-extrabold uppercase tracking-widest mb-6">
+          <span class="w-2 h-2 bg-teal-600 dark:bg-teal-400 rounded-full animate-ping"></span>
+          Outpatient Pediatric Clinic & Early Intervention Wing
+        </div>
+
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight mb-6">
+          Clinical Precision in Early Intervention & Neurodevelopmental Care.
+        </h1>
+
+        <p class="text-base sm:text-lg text-slate-700 dark:text-slate-300 mb-8 leading-relaxed font-medium">
+          The first 2,000 days shape lifelong neural plasticity. Lumina's Clinical Hub delivers 1:1 outpatient therapy, sensory gym rehabilitation, pediatric feeding therapy, and assistive AAC implementation for toddlers and young children.
+        </p>
+
+        <!-- Clinical Key Metrics -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-8">
+          <div class="border border-theme bg-theme-primary p-3">
+            <span class="block text-2xl font-black text-teal-600 dark:text-teal-400">18m – 8y</span>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400">Early Target Age</span>
+          </div>
+          <div class="border border-theme bg-theme-primary p-3">
+            <span class="block text-2xl font-black text-amber-600 dark:text-amber-400">1 : 1</span>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400">Clinical Direct Care</span>
+          </div>
+          <div class="border border-theme bg-theme-primary p-3">
+            <span class="block text-2xl font-black text-teal-600 dark:text-teal-400">48-Hr</span>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400">Intake Turnaround</span>
+          </div>
+          <div class="border border-theme bg-theme-primary p-3">
+            <span class="block text-2xl font-black text-amber-600 dark:text-amber-400">NDBI</span>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400">Play-Led Science</span>
+          </div>
+        </div>
+
+        <!-- CTAs -->
+        <div class="flex flex-wrap items-center gap-4">
+          <a href="contact.html#intake-section" class="btn-primary !bg-teal-600 hover:!bg-teal-700 !border-teal-600">
+            <span>Book Early Clinical Screening</span>
+            <svg class="w-4 h-4 rtl-flip" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+          <a href="therapists.html" class="btn-secondary">
+            <span>Meet Pediatric Clinical Staff</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       CONTAINER 2: EARLY MILESTONE DIAGNOSTIC SCREENERS
+       Standardized clinical evaluation batteries performed on campus
+       ========================================================================== -->
+  <section class="py-16 sm:py-24 bg-theme-secondary border-b border-theme">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="max-w-3xl mb-14">
+        <div class="inline-block px-3 py-1 bg-amber-500/10 border border-amber-500/30 text-amber-700 dark:text-amber-400 text-xs font-extrabold uppercase tracking-widest mb-3">
+          Gold-Standard Diagnostics
+        </div>
+        <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight mb-4">
+          Evidence-Based Developmental Assessment Batteries
+        </h2>
+        <p class="text-slate-600 dark:text-slate-400 text-base leading-relaxed">
+          Accurate diagnosis removes guesswork. Our multidisciplinary team utilizes standardized, nationally normed clinical assessments to evaluate motor milestones, sensory reactivity, communication fluency, and social interaction.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Assessment 1 -->
+        <div class="flat-card !p-6 flex flex-col justify-between hover:border-teal-500 transition-all">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="badge-teal text-[10px]">Autism Diagnostic</span>
+              <span class="text-xs font-bold text-slate-500">ADOS®-2 & CARS-2</span>
+            </div>
+            <h3 class="text-base font-bold mb-2">Autism Diagnostic Observation Schedule</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+              Gold-standard semi-structured observation evaluating reciprocal social interaction, communication nuances, play behaviors, and restricted interests.
+            </p>
+          </div>
+          <div class="text-[11px] font-semibold text-teal-700 dark:text-teal-400 pt-3 border-t border-theme mt-auto">
+            Target Ages: 12 months through adulthood
+          </div>
+        </div>
+
+        <!-- Assessment 2 -->
+        <div class="flat-card !p-6 flex flex-col justify-between hover:border-teal-500 transition-all">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="badge-amber text-[10px]">Sensory Profile</span>
+              <span class="text-xs font-bold text-slate-500">Sensory Profile™-2</span>
+            </div>
+            <h3 class="text-base font-bold mb-2">Dunn’s Sensory Processing Battery</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+              Evaluates auditory, visual, touch, movement, and body position thresholds to pinpoint seeking, avoiding, and hyper/hypo-sensitive sensory patterns.
+            </p>
+          </div>
+          <div class="text-[11px] font-semibold text-amber-700 dark:text-amber-400 pt-3 border-t border-theme mt-auto">
+            Target Ages: Birth through 14 years
+          </div>
+        </div>
+
+        <!-- Assessment 3 -->
+        <div class="flat-card !p-6 flex flex-col justify-between hover:border-teal-500 transition-all">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="badge-teal text-[10px]">Speech & Language</span>
+              <span class="text-xs font-bold text-slate-500">PLS™-5 & CELF®-P3</span>
+            </div>
+            <h3 class="text-base font-bold mb-2">Preschool Language Comprehensive Scales</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+              Identifies expressive language delays, receptive understanding gaps, vocabulary emergence, and childhood speech sound articulation difficulties.
+            </p>
+          </div>
+          <div class="text-[11px] font-semibold text-teal-700 dark:text-teal-400 pt-3 border-t border-theme mt-auto">
+            Target Ages: Birth through 7 years 11 months
+          </div>
+        </div>
+
+        <!-- Assessment 4 -->
+        <div class="flat-card !p-6 flex flex-col justify-between hover:border-teal-500 transition-all">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="badge-amber text-[10px]">Motor Skills</span>
+              <span class="text-xs font-bold text-slate-500">PDMS-2 (Peabody)</span>
+            </div>
+            <h3 class="text-base font-bold mb-2">Developmental Motor Scales Assessment</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+              Measures reflexes, stationary balance, locomotion, object manipulation, grasping coordination, and visual-motor integration skills.
+            </p>
+          </div>
+          <div class="text-[11px] font-semibold text-amber-700 dark:text-amber-400 pt-3 border-t border-theme mt-auto">
+            Target Ages: Birth through 5 years
+          </div>
+        </div>
+
+        <!-- Assessment 5 -->
+        <div class="flat-card !p-6 flex flex-col justify-between hover:border-teal-500 transition-all">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="badge-teal text-[10px]">Infant Development</span>
+              <span class="text-xs font-bold text-slate-500">Bayley-4 Battery</span>
+            </div>
+            <h3 class="text-base font-bold mb-2">Bayley Scales of Infant & Toddler Dev</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+              Comprehensive diagnostic assessment identifying developmental delay across 5 key domains: cognitive, language, motor, socio-emotional, and adaptive.
+            </p>
+          </div>
+          <div class="text-[11px] font-semibold text-teal-700 dark:text-teal-400 pt-3 border-t border-theme mt-auto">
+            Target Ages: 16 days to 42 months
+          </div>
+        </div>
+
+        <!-- Assessment 6 -->
+        <div class="flat-card !p-6 flex flex-col justify-between hover:border-teal-500 transition-all">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="badge-amber text-[10px]">Adaptive Behavior</span>
+              <span class="text-xs font-bold text-slate-500">Vineland™-3</span>
+            </div>
+            <h3 class="text-base font-bold mb-2">Vineland Adaptive Behavior Scale</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+              Measures daily personal self-sufficiency, functional communication, community socialization, and motor independence in authentic settings.
+            </p>
+          </div>
+          <div class="text-[11px] font-semibold text-amber-700 dark:text-amber-400 pt-3 border-t border-theme mt-auto">
+            Target Ages: Birth to 90 years
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       CONTAINER 3: DEDICATED CLINICAL SPECIALTY CLINICS
+       Deep dive into 4 specialized clinical areas
+       ========================================================================== -->
+  <section class="py-16 sm:py-24 bg-theme-primary border-b border-theme">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="max-w-3xl mb-14">
+        <div class="inline-block px-3 py-1 bg-teal-500/10 border border-teal-500/30 text-teal-700 dark:text-teal-400 text-xs font-extrabold uppercase tracking-widest mb-3">
+          Specialized Outpatient Suites
+        </div>
+        <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight mb-4">
+          Four Purpose-Built Pediatric Therapy Clinics
+        </h2>
+        <p class="text-slate-600 dark:text-slate-400 text-base leading-relaxed">
+          Designed specifically for pediatric co-treatment, each clinic provides dedicated equipment, low-distraction architecture, and licensed clinical sub-specialists.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+        <!-- Clinic 1 -->
+        <div class="border border-theme bg-theme-secondary flex flex-col">
+          <div class="h-56 overflow-hidden border-b border-theme">
+            <img src="https://i.pinimg.com/1200x/46/f1/bf/46f1bf01ff737ea909a2cec6891fbcec.jpg" alt="Sensory Integration Gym Clinic" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400 block mb-1">Clinic Suite 01</span>
+              <h3 class="text-xl font-bold mb-3">Sensory Integration Gym & Motor Clinic</h3>
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+                Led by Sensory Integration certified Occupational Therapists (OTR/L). Features suspension ceiling tracks for vestibular swings, bolster swings, crash pits, and bilateral coordination balance beams.
+              </p>
+              <ul class="space-y-1.5 text-xs text-slate-600 dark:text-slate-300 mb-6">
+                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-amber-500 rounded-full"></span>Vestibular ocular reflex & balance training</li>
+                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-amber-500 rounded-full"></span>Deep pressure proprioceptive calming protocols</li>
+                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-amber-500 rounded-full"></span>Fine motor pincer grip & bilateral hand skills</li>
+              </ul>
+            </div>
+            <a href="contact.html#intake-section" class="btn-secondary !py-2 text-xs w-full text-center">Consult with OT Specialist</a>
+          </div>
+        </div>
+
+        <!-- Clinic 2 -->
+        <div class="border border-theme bg-theme-secondary flex flex-col">
+          <div class="h-56 overflow-hidden border-b border-theme">
+            <img src="https://i.pinimg.com/1200x/a5/a8/58/a5a85813ea40ff58d905dab62024d001.jpg" alt="Pediatric Feeding & Swallowing Clinic" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400 block mb-1">Clinic Suite 02</span>
+              <h3 class="text-xl font-bold mb-3">Pediatric Feeding, Dysphagia & Oral Motor</h3>
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+                Specialized SOS (Sequential Oral Sensory) feeding clinic for food aversion, texture defensiveness, dysphagia swallowing mechanics, and oral motor chewing strength.
+              </p>
+              <ul class="space-y-1.5 text-xs text-slate-600 dark:text-slate-300 mb-6">
+                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-teal-500 rounded-full"></span>Sequential Oral Sensory (SOS) feeding framework</li>
+                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-teal-500 rounded-full"></span>Oral motor tone & jaw stabilization therapy</li>
+                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-teal-500 rounded-full"></span>Gentle systematic food texture expansion</li>
+              </ul>
+            </div>
+            <a href="contact.html#intake-section" class="btn-secondary !py-2 text-xs w-full text-center">Consult with Feeding SLP</a>
+          </div>
+        </div>
+
+        <!-- Clinic 3 -->
+        <div class="border border-theme bg-theme-secondary flex flex-col">
+          <div class="h-56 overflow-hidden border-b border-theme">
+            <img src="https://images.unsplash.com/photo-1588075592446-265fd1e6e76f?auto=format&fit=crop&w=800&q=80" alt="Early Speech & Articulation Clinic" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400 block mb-1">Clinic Suite 03</span>
+              <h3 class="text-xl font-bold mb-3">Childhood Apraxia & Speech Articulation</h3>
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+                Clinical intervention for Childhood Apraxia of Speech (CAS) utilizing PROMPT tactile-kinesthetic cues, DTTC dynamic temporal and tactile cueing, and phonological processing.
+              </p>
+              <ul class="space-y-1.5 text-xs text-slate-600 dark:text-slate-300 mb-6">
+                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-amber-500 rounded-full"></span>PROMPT certified tactile kinesthetic feedback</li>
+                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-amber-500 rounded-full"></span>Motor speech programming & syllable chaining</li>
+                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-amber-500 rounded-full"></span>Expressive language and phrase expansion</li>
+              </ul>
+            </div>
+            <a href="contact.html#intake-section" class="btn-secondary !py-2 text-xs w-full text-center">Consult with Speech Specialist</a>
+          </div>
+        </div>
+
+        <!-- Clinic 4 -->
+        <div class="border border-theme bg-theme-secondary flex flex-col">
+          <div class="h-56 overflow-hidden border-b border-theme">
+            <img src="https://i.pinimg.com/736x/8e/74/8b/8e748ba77d97dc4914109b226afa8dd7.jpg" alt="Assistive AAC Communication Lab" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400 block mb-1">Clinic Suite 04</span>
+              <h3 class="text-xl font-bold mb-3">High-Tech AAC & Assistive Device Lab</h3>
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+                Comprehensive AAC evaluations for non-verbal children. Device lending trials, eye-tracking calibration, motorized wheelchair mounting, and custom vocabulary engineering.
+              </p>
+              <ul class="space-y-1.5 text-xs text-slate-600 dark:text-slate-300 mb-6">
+                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-teal-500 rounded-full"></span>LAMP Words for Life & TouchChat customization</li>
+                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-teal-500 rounded-full"></span>Tobii Dynavox eye-gaze and switch scanning</li>
+                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-teal-500 rounded-full"></span>Family & school team device training</li>
+              </ul>
+            </div>
+            <a href="contact.html#intake-section" class="btn-secondary !py-2 text-xs w-full text-center">Consult with AAC Director</a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       CONTAINER 4: NDBI & NATURALISTIC EARLY STEPS METHODOLOGY
+       Neurodiversity-affirming play-led science vs traditional compliance models
+       ========================================================================== -->
+  <section class="py-16 sm:py-24 bg-theme-secondary border-b border-theme">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="max-w-3xl mb-14">
+        <div class="inline-block px-3 py-1 bg-amber-500/10 border border-amber-500/30 text-amber-700 dark:text-amber-400 text-xs font-extrabold uppercase tracking-widest mb-3">
+          Our Clinical Philosophy
+        </div>
+        <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight mb-4">
+          Why Lumina Uses Naturalistic Developmental Behavioral Interventions
+        </h2>
+        <p class="text-slate-600 dark:text-slate-400 text-base leading-relaxed">
+          Traditional behavioral models focused on compliance, repetitive drills, and suppressing harmless self-soothing behaviors. Lumina champions evidence-based NDBI and DIR®/Floortime—where motivation, emotional connection, and child-led play drive authentic neural growth.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Lumina Approach -->
+        <div class="border-2 border-teal-600 bg-theme-primary p-6 sm:p-8">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-black uppercase tracking-wider text-teal-700 dark:text-teal-400">The Lumina NDBI Standard</span>
+            <span class="text-xs font-bold bg-teal-500/20 text-teal-800 dark:text-teal-300 px-2 py-0.5">Neuro-Affirming</span>
+          </div>
+          <h3 class="text-xl font-bold mb-4">Child-Led, Relational & Meaningful</h3>
+          <ul class="space-y-3 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+            <li class="flex items-start gap-2.5">
+              <svg class="w-5 h-5 text-teal-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span><strong>Natural Reinforcers:</strong> Activities leverage the child's natural intrinsic passions rather than arbitrary edible rewards.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <svg class="w-5 h-5 text-teal-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span><strong>Sensory Validation:</strong> Stimming and sensory movement are recognized as vital regulation tools, never targeted for elimination.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <svg class="w-5 h-5 text-teal-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span><strong>Emotional Safety:</strong> Co-regulation precedes learning. A dysregulated nervous system is given sensory comfort first.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <svg class="w-5 h-5 text-teal-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span><strong>Total Communication:</strong> Gestures, AAC speech devices, sign, and spoken words are given equal dignity and immediate response.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Outdated Traditional Approach -->
+        <div class="border border-theme bg-theme-primary p-6 sm:p-8 opacity-75">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-black uppercase tracking-wider text-slate-500">Traditional Compliance Models</span>
+            <span class="text-xs font-bold bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400 px-2 py-0.5">Outdated</span>
+          </div>
+          <h3 class="text-xl font-bold mb-4">Repetitive, Table-Bound & Masking</h3>
+          <ul class="space-y-3 text-xs sm:text-sm text-slate-600 dark:text-slate-400">
+            <li class="flex items-start gap-2.5">
+              <svg class="w-5 h-5 text-rose-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+              <span><strong>Artificial Conditioning:</strong> Excessive table trials relying on tokens or candy that fail to generalize to real life.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <svg class="w-5 h-5 text-rose-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+              <span><strong>Forced Eye Contact:</strong> Coercing non-speaking or autistic children to make eye contact despite neurological pain.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <svg class="w-5 h-5 text-rose-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+              <span><strong>Sensory Ignorance:</strong> Treating sensory meltdowns as willful disobedience instead of fight-or-flight nervous system overload.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <svg class="w-5 h-5 text-rose-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+              <span><strong>Speech Withholding:</strong> Denying AAC communication tablets until the child produces vocal sounds.</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       CONTAINER 5: CLINICAL DIAGNOSTIC TECHNOLOGY & OBJECTIVE TRACKING
+       Advanced clinical instrumentation utilized by therapists
+       ========================================================================== -->
+  <section class="py-16 sm:py-24 bg-theme-primary border-b border-theme">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <div class="inline-block px-3 py-1 bg-teal-500/10 border border-teal-500/30 text-teal-700 dark:text-teal-400 text-xs font-extrabold uppercase tracking-widest mb-3">
+          Clinical Instrumentation
+        </div>
+        <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight mb-4">
+          Advanced Diagnostic Technology for Objective Measurement
+        </h2>
+        <p class="text-slate-600 dark:text-slate-400 text-base leading-relaxed">
+          We combine empathetic human care with modern clinical bio-instrumentation to measure autonomic regulation, motor coordination, and speech acoustics with scientific precision.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <div class="border border-theme bg-theme-secondary p-6">
+          <div class="w-10 h-10 bg-slate-900 text-white dark:bg-amber-500 dark:text-slate-950 flex items-center justify-center font-bold mb-4">
+            01
+          </div>
+          <h3 class="text-base font-bold mb-2">Video Gait & Motion Analysis</h3>
+          <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+            Multi-camera slow-motion tracking for hypotonia, toe-walking, and asymmetrical movement patterns in gross motor rehabilitation.
+          </p>
+        </div>
+
+        <div class="border border-theme bg-theme-secondary p-6">
+          <div class="w-10 h-10 bg-slate-900 text-white dark:bg-amber-500 dark:text-slate-950 flex items-center justify-center font-bold mb-4">
+            02
+          </div>
+          <h3 class="text-base font-bold mb-2">Eye-Gaze Diagnostic Tracker</h3>
+          <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+            Measures visual fixation, saccadic eye movements, and calibration accuracy for non-verbal high-tech communication access.
+          </p>
+        </div>
+
+        <div class="border border-theme bg-theme-secondary p-6">
+          <div class="w-10 h-10 bg-slate-900 text-white dark:bg-amber-500 dark:text-slate-950 flex items-center justify-center font-bold mb-4">
+            03
+          </div>
+          <h3 class="text-base font-bold mb-2">Acoustic Speech Spectrograms</h3>
+          <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+            Real-time visual waveforms showing pitch, formant frequencies, and vocal resonance to accelerate apraxia and articulation progress.
+          </p>
+        </div>
+
+        <div class="border border-theme bg-theme-secondary p-6">
+          <div class="w-10 h-10 bg-slate-900 text-white dark:bg-amber-500 dark:text-slate-950 flex items-center justify-center font-bold mb-4">
+            04
+          </div>
+          <h3 class="text-base font-bold mb-2">Heart Rate Variability (HRV)</h3>
+          <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+            Non-invasive autonomic monitoring inside sensory gyms to objectively identify arousal levels before sensory overload occurs.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       CONTAINER 6: PARENT-MEDIATED COACHING & HOME CARRYOVER
+       Empowering parents as active clinical partners
+       ========================================================================== -->
+  <section class="py-16 sm:py-24 bg-theme-secondary border-b border-theme">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        
+        <div>
+          <div class="inline-block px-3 py-1 bg-amber-500/10 border border-amber-500/30 text-amber-700 dark:text-amber-400 text-xs font-extrabold uppercase tracking-widest mb-3">
+            Family Partnership
+          </div>
+          <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight mb-4">
+            Parent-Mediated Coaching & Home Carryover Framework
+          </h2>
+          <p class="text-slate-600 dark:text-slate-400 text-base leading-relaxed mb-6">
+            A child spends only a few hours per week in therapy; they spend their lives with their family. Lumina's clinical model equips parents with the exact sensory strategies, communication modeling, and de-escalation tools our therapists use.
+          </p>
+
+          <div class="space-y-4 text-xs sm:text-sm">
+            <div class="border border-theme bg-theme-primary p-4">
+              <h4 class="font-bold text-slate-900 dark:text-slate-100 mb-1">In-Session Parent Participation</h4>
+              <p class="text-slate-600 dark:text-slate-400">Parents are welcome inside therapy rooms or observe via private one-way mirror with live audio commentary from our senior supervisors.</p>
+            </div>
+            <div class="border border-theme bg-theme-primary p-4">
+              <h4 class="font-bold text-slate-900 dark:text-slate-100 mb-1">Custom Home Sensory Diet Guides</h4>
+              <p class="text-slate-600 dark:text-slate-400">Step-by-step schedules for morning routines, bedtime regulation, mealtime textures, and car ride calming kits.</p>
+            </div>
+            <div class="border border-theme bg-theme-primary p-4">
+              <h4 class="font-bold text-slate-900 dark:text-slate-100 mb-1">Bi-Weekly Telehealth Coaching</h4>
+              <p class="text-slate-600 dark:text-slate-400">Direct 30-minute video coaching with your child's primary therapist to troubleshoot real home situations.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="border border-theme bg-theme-primary p-6 sm:p-8">
+          <div class="h-64 sm:h-80 overflow-hidden border border-theme mb-6">
+            <img src="https://i.pinimg.com/1200x/77/94/e0/7794e09cafdefae3b21e5e7307024754.jpg" alt="Parent and Child Coaching" class="w-full h-full object-cover" />
+          </div>
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <h4 class="text-base font-bold text-slate-900 dark:text-slate-100">Family Guidance & Caregiver Coaching</h4>
+              <p class="text-xs text-slate-500 dark:text-slate-400">Structured home integration toolkits, milestone reviews, and clinical strategy sessions.</p>
+            </div>
+            <a href="contact.html#intake-section" class="btn-primary !py-2.5 text-xs whitespace-nowrap">Schedule Consultation</a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       CONTAINER 7: CLINICAL AFFILIATIONS & RESEARCH GOVERNANCE
+       Institutional trust, hospital partners, and ethical review boards
+       ========================================================================== -->
+  <section class="py-16 sm:py-20 bg-theme-primary border-b border-theme">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="max-w-3xl mb-10">
+        <span class="text-xs font-bold uppercase tracking-widest text-teal-700 dark:text-teal-400 block mb-2">Hospital & Academic Affiliations</span>
+        <h2 class="text-xl sm:text-3xl font-extrabold tracking-tight">Collaborating With Leading Medical & Research Centers</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <div class="border border-theme p-5 bg-theme-secondary">
+          <div class="text-xs font-black uppercase text-teal-600 dark:text-teal-400 mb-1">Children's Hospital Network</div>
+          <h4 class="text-sm font-bold mb-2">Pediatric Neurology Liaison</h4>
+          <p class="text-xs text-slate-600 dark:text-slate-400">Direct referral and co-management protocols with regional pediatric neurology departments for EEG and genetic consultations.</p>
+        </div>
+
+        <div class="border border-theme p-5 bg-theme-secondary">
+          <div class="text-xs font-black uppercase text-amber-600 dark:text-amber-400 mb-1">University Medical School</div>
+          <h4 class="text-sm font-bold mb-2">Clinical Fellowship Site</h4>
+          <p class="text-xs text-slate-600 dark:text-slate-400">Post-doctoral training site for Speech-Language Pathology Clinical Fellows (CFY) and Occupational Therapy doctoral residents.</p>
+        </div>
+
+        <div class="border border-theme p-5 bg-theme-secondary">
+          <div class="text-xs font-black uppercase text-teal-600 dark:text-teal-400 mb-1">State Early Intervention</div>
+          <h4 class="text-sm font-bold mb-2">Part C IDEA Provider</h4>
+          <p class="text-xs text-slate-600 dark:text-slate-400">Official contracted clinical provider for state Part C early intervention services, Infant-Toddler programs, and IFSP services.</p>
+        </div>
+
+        <div class="border border-theme p-5 bg-theme-secondary">
+          <div class="text-xs font-black uppercase text-amber-600 dark:text-amber-400 mb-1">Commercial Insurance</div>
+          <h4 class="text-sm font-bold mb-2">In-Network Superbills</h4>
+          <p class="text-xs text-slate-600 dark:text-slate-400">Dedicated billing advocates providing daily CPT-coded clinical superbills for out-of-network insurance reimbursement.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       CONTAINER 8: CLINICAL INTAKE & SCREENING SCHEDULER CTA
+       Action container for rapid clinical consultation booking
+       ========================================================================== -->
+  <section class="py-16 sm:py-24 bg-theme-secondary">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="border border-theme bg-theme-primary p-8 sm:p-12 lg:p-16 flex flex-col lg:flex-row items-center justify-between gap-8">
+        
+        <div class="max-w-2xl">
+          <div class="inline-block px-3 py-1 bg-teal-500/10 border border-teal-500/30 text-teal-700 dark:text-teal-400 text-xs font-extrabold uppercase tracking-widest mb-4">
+            Early Intervention Waitlist Priority
+          </div>
+          <h2 class="text-2xl sm:text-4xl font-black tracking-tight mb-4">
+            Early Action Transforms Outcomes. Schedule Your Child's Screening Today.
+          </h2>
+          <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed mb-6">
+            If you have questions about your child's speech emergence, motor milestones, or sensory responses, our clinical diagnostic intake desk is here to provide clarity within 48 business hours.
+          </p>
+          <div class="flex flex-wrap items-center gap-6 text-xs font-semibold text-slate-600 dark:text-slate-300">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 bg-teal-500 rounded-full"></span>
+              <span>No Physician Referral Required for Initial Consultation</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 bg-teal-500 rounded-full"></span>
+              <span>Ages 18 Months to 8 Years</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row lg:flex-col gap-3 w-full sm:w-auto shrink-0">
+          <a href="contact.html#intake-section" class="btn-primary !bg-teal-600 hover:!bg-teal-700 !border-teal-600 text-center">
+            <span>Book Clinical Screening</span>
+          </a>
+          <a href="therapists.html" class="btn-secondary text-center">
+            <span>Browse Therapy Specialists</span>
+          </a>
+          <a href="tel:+18005558646" class="text-center text-xs font-bold text-slate-600 dark:text-slate-400 hover:text-amber-600 dark:hover:text-amber-400 pt-2">
+            Clinical Desk: (800) 555-LUMINA
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       GLOBAL FOOTER (Strictly Identical across all pages)
+       ========================================================================== -->
+  <footer class="bg-theme-secondary border-t border-theme pt-16 pb-12 transition-colors duration-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
+        
+        <!-- Brand Info -->
+        <div class="lg:col-span-2">
+          <a href="index.html" class="flex items-center gap-3 group mb-4 inline-flex focus:outline-none" aria-label="Return to Lumina Home">
+            <div class="w-10 h-10 bg-slate-900 dark:bg-amber-500 text-white dark:text-slate-950 flex items-center justify-center font-black text-xl border border-slate-900 dark:border-amber-400 shrink-0">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/>
+              </svg>
+            </div>
+            <span class="text-xl sm:text-2xl font-black tracking-wider text-slate-900 dark:text-slate-50 uppercase">LUMINA</span>
+          </a>
+          <p class="text-xs leading-relaxed max-w-sm mb-6 text-slate-500 dark:text-slate-400">
+            Lumina is a state-accredited multidisciplinary academy and pediatric clinical therapy center serving children and young adults with Autism, ADHD, Sensory Processing, Speech, Down Syndrome, and Learning Differences.
+          </p>
+          <div class="flex items-center gap-3">
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 border border-theme flex items-center justify-center hover:bg-slate-900 hover:text-white dark:hover:bg-amber-500 dark:hover:text-slate-950 transition-colors" aria-label="Follow Lumina on X">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </a>
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="w-10 h-10 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-[#E1306C] hover:text-white hover:border-[#E1306C] dark:hover:bg-[#E1306C] dark:hover:border-[#E1306C] transition-all duration-300 shadow-sm"
-            >
-              <i class="fab fa-instagram"></i>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 border border-theme flex items-center justify-center hover:bg-slate-900 hover:text-white dark:hover:bg-amber-500 dark:hover:text-slate-950 transition-colors" aria-label="Follow Lumina on Instagram">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
             </a>
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="w-10 h-10 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-[#0A66C2] hover:text-white hover:border-[#0A66C2] dark:hover:bg-[#0A66C2] dark:hover:border-[#0A66C2] transition-all duration-300 shadow-sm"
-            >
-              <i class="fab fa-linkedin-in"></i>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 border border-theme flex items-center justify-center hover:bg-slate-900 hover:text-white dark:hover:bg-amber-500 dark:hover:text-slate-950 transition-colors" aria-label="Follow Lumina on LinkedIn">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
             </a>
           </div>
         </div>
 
-        <!-- Quick Links -->
-        <div class="md:col-span-4 lg:col-span-3">
-          <h4
-            class="font-bold text-slate-900 dark:text-white mb-6 uppercase tracking-wider text-sm flex items-center gap-2"
-          >
-            <span class="w-2 h-2 rounded-full bg-blue-500"></span> Quick Links
-          </h4>
-          <ul
-            class="space-y-3 text-sm text-slate-500 dark:text-slate-400 font-medium"
-          >
-            <li>
-              <a
-                href="index.html"
-                class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors inline-flex items-center gap-2 group"
-                ><i
-                  class="fas fa-chevron-right text-[10px] text-slate-300 dark:text-slate-600 group-hover:translate-x-1 transition-transform"
-                ></i>
-                Home</a
-              >
-            </li>
-            <li>
-              <a
-                href="programs.html"
-                class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors inline-flex items-center gap-2 group"
-                ><i
-                  class="fas fa-chevron-right text-[10px] text-slate-300 dark:text-slate-600 group-hover:translate-x-1 transition-transform"
-                ></i>
-                Programs</a
-              >
-            </li>
-            <li>
-              <a
-                href="therapists.html"
-                class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors inline-flex items-center gap-2 group"
-                ><i
-                  class="fas fa-chevron-right text-[10px] text-slate-300 dark:text-slate-600 group-hover:translate-x-1 transition-transform"
-                ></i>
-                Therapists</a
-              >
-            </li>
-            <li>
-              <a
-                href="resources.html"
-                class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors inline-flex items-center gap-2 group"
-                ><i
-                  class="fas fa-chevron-right text-[10px] text-slate-300 dark:text-slate-600 group-hover:translate-x-1 transition-transform"
-                ></i>
-                Resources</a
-              >
-            </li>
+        <!-- Links Column 1 -->
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-slate-100 mb-4">Academy Navigation</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="index.html" class="hover:text-amber-600 transition-colors">Home (Campus Overview)</a></li>
+            <li><a href="index2.html" class="hover:text-amber-600 transition-colors font-bold text-amber-600 dark:text-amber-400">Clinical Hub (Early Steps)</a></li>
+            <li><a href="about.html" class="hover:text-amber-600 transition-colors">About Us & Leadership</a></li>
+            <li><a href="programs.html" class="hover:text-amber-600 transition-colors">Adaptive Programs (IEP)</a></li>
+            <li><a href="therapists.html" class="hover:text-amber-600 transition-colors">Clinical Specialist Directory</a></li>
+            <li><a href="resources.html" class="hover:text-amber-600 transition-colors">Family Guides & FAQ</a></li>
+            <li><a href="contact.html" class="hover:text-amber-600 transition-colors">Campus Tour & Intake</a></li>
           </ul>
         </div>
 
-        <!-- Contact Info -->
-        <div class="md:col-span-4 lg:col-span-4">
-          <h4
-            class="font-bold text-slate-900 dark:text-white mb-6 uppercase tracking-wider text-sm flex items-center gap-2"
-          >
-            <span class="w-2 h-2 rounded-full bg-blue-500"></span> Contact Us
-          </h4>
-          <ul class="space-y-4 text-sm text-slate-500 dark:text-slate-400">
-            <li class="flex items-start gap-3">
-              <div
-                class="w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center text-blue-500 shrink-0"
-              >
-                <i class="fas fa-map-marker-alt"></i>
-              </div>
-              <span class="mt-1.5"
-                >123 Education Way,<br />Cityville, ST 12345</span
-              >
-            </li>
-            <li class="flex items-center gap-3">
-              <div
-                class="w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center text-blue-500 shrink-0"
-              >
-                <i class="fas fa-phone-alt"></i>
-              </div>
-              <a
-                href="tel:+15551234567"
-                class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-                >+1 (555) 123-4567</a
-              >
-            </li>
-            <li class="flex items-center gap-3">
-              <div
-                class="w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center text-blue-500 shrink-0"
-              >
-                <i class="fas fa-envelope"></i>
-              </div>
-              <a
-                href="mailto:info@lumina.edu"
-                class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-                >info@lumina.edu</a
-              >
-            </li>
+        <!-- Links Column 2 -->
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-slate-100 mb-4">Supported Audiences</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="programs.html?filter=autism" class="hover:text-amber-600 transition-colors">Autism Spectrum (ASC)</a></li>
+            <li><a href="programs.html?filter=adhd" class="hover:text-amber-600 transition-colors">ADHD & Executive Function</a></li>
+            <li><a href="programs.html?filter=sensory" class="hover:text-amber-600 transition-colors">Sensory Processing (SPD)</a></li>
+            <li><a href="programs.html?filter=speech" class="hover:text-amber-600 transition-colors">Speech & Non-Verbal AAC</a></li>
+            <li><a href="programs.html?filter=downsyndrome" class="hover:text-amber-600 transition-colors">Down Syndrome Support</a></li>
+            <li><a href="programs.html?filter=learning" class="hover:text-amber-600 transition-colors">Dyslexia & Math Learning</a></li>
           </ul>
         </div>
+
+        <!-- Links Column 3 -->
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-slate-100 mb-4">Admissions & Clinical Desk</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="contact.html" class="hover:text-amber-600 transition-colors">Comprehensive Diagnostic Intake</a></li>
+            <li><a href="contact.html#tour-booking" class="hover:text-amber-600 transition-colors">Private Campus Walkthrough</a></li>
+            <li><a href="contact.html#intake-section" class="hover:text-amber-600 transition-colors">Admissions & Intake</a></li>
+            <li><a href="resources.html#faq-section" class="hover:text-amber-600 transition-colors">Clinical & Insurance FAQs</a></li>
+          </ul>
+        </div>
+
       </div>
 
-      <!-- Copyright -->
-      <div
-        class="container mx-auto px-6 lg:px-12 pt-6 border-t border-slate-100 dark:border-slate-800/60 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-medium text-slate-400 dark:text-slate-500"
-      >
-        <p>&copy; 2026 Lumina Education Center. All Rights Reserved.</p>
-        <div class="flex gap-6">
-          <a
-            href="#"
-            class="hover:text-slate-600 dark:hover:text-slate-300 transition-colors"
-            >Privacy Policy</a
-          >
-          <a
-            href="#"
-            class="hover:text-slate-600 dark:hover:text-slate-300 transition-colors"
-            >Terms of Service</a
-          >
+      <div class="pt-8 border-t border-theme flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+        <p>© 2026 LUMINA CENTER FOR NEURODIVERSITY & PEDIATRIC THERAPY. All Rights Reserved.</p>
+        <div class="flex items-center gap-6">
+          <span class="hover:underline cursor-pointer">HIPAA Notice</span>
+          <span class="hover:underline cursor-pointer">Non-Discrimination Policy</span>
+          <span class="hover:underline cursor-pointer">State Accreditation Charter</span>
         </div>
       </div>
-    </footer>
+    </div>
+  </footer>
 
-    <script src="script.js"></script>
-  </body>
+  <!-- Core JavaScript -->
+  <script src="script.js"></script>
+</body>
 </html>

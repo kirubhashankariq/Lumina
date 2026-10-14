@@ -1,75 +1,789 @@
+/* ==========================================================================
+   LUMINA CENTER FOR NEURODIVERSITY & PEDIATRIC THERAPY
+   Core Architectural Stylesheet - Ultra-Professional, Flat & High-Contrast
+   STRICTLY NO NEUMORPHISM | NO GLASSMORPHISM | NO CANVAS GIMMICKS
+   ========================================================================== */
+
+/* Design Tokens & Theme Variables */
 :root {
-  --bg-color: #f8fafc;
-  --card-bg: #ffffff;
-  --text-main: #0f172a;
-  --shadow-color: rgba(15, 23, 42, 0.08);
-  --border-color: #e2e8f0;
+  /* Strict Unified Heading Colors Across Entire Project */
+  --heading-color: #0F172A; /* Slate 900 */
+  --subheading-color: #475569; /* Slate 600 */
+  --body-text-color: #1E293B; /* Slate 800 */
+  --muted-text-color: #64748B; /* Slate 500 */
+
+  /* High-Contrast Flat Theme Palette */
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F8FAFC; /* Slate 50 */
+  --bg-tertiary: #F1F5F9; /* Slate 100 */
+  --border-color: #E2E8F0; /* Slate 200 */
+  --border-strong: #0F172A; /* Slate 900 */
+
+  /* Primary Brand Color: Executive Medical Navy */
+  --brand-primary: #0F172A;
+  --brand-primary-light: #1E293B;
+
+  /* Balanced Complementary Color 1: Pediatric Therapeutic Teal / Emerald */
+  --brand-teal: #0D9488; /* Teal 600 */
+  --brand-teal-hover: #0F766E; /* Teal 700 */
+  --brand-teal-bg: #F0FDFA; /* Teal 50 */
+  --brand-teal-text: #FFFFFF;
+
+  /* Balanced Complementary Color 2: Warm Empowerment Amber / Gold (Primary CTA) */
+  --brand-accent: #D97706; /* Amber 600 */
+  --brand-accent-hover: #B45309; /* Amber 700 */
+  --brand-accent-bg: #FFFBEB; /* Amber 50 */
+  --brand-accent-text: #FFFFFF;
+
+  /* Semantic Accent Tones */
+  --color-indigo: #4F46E5;
+  --color-rose: #E11D48;
+  --color-emerald: #059669;
+
+  /* High Contrast Hero Overlay */
+  --hero-overlay-bg: rgba(15, 23, 42, 0.78);
+  --hero-card-bg: rgba(255, 255, 255, 0.96);
+
+  /* Modal Overlay */
+  --modal-overlay: rgba(15, 23, 42, 0.75);
 }
 
 html.dark {
-  --bg-color: #0f172a;
-  --card-bg: #1e293b;
-  --text-main: #f8fafc;
-  --shadow-color: rgba(0, 0, 0, 0.4);
-  --border-color: #334155;
+  /* Strict Unified Heading Colors in Dark Mode */
+  --heading-color: #F8FAFC; /* Slate 50 */
+  --subheading-color: #CBD5E1; /* Slate 300 */
+  --body-text-color: #E2E8F0; /* Slate 200 */
+  --muted-text-color: #94A3B8; /* Slate 400 */
+
+  /* Dark Mode High-Contrast Flat Theme Palette */
+  --bg-primary: #0B0F19; /* Pure Deep Obsidian */
+  --bg-secondary: #111827; /* Slate 900 */
+  --bg-tertiary: #1E293B; /* Slate 800 */
+  --border-color: #334155; /* Slate 700 */
+  --border-strong: #F8FAFC; /* Slate 50 */
+
+  /* Primary Brand Color in Dark Mode */
+  --brand-primary: #F8FAFC;
+  --brand-primary-light: #334155;
+
+  /* Balanced Complementary Color 1 in Dark: High-Visibility Teal */
+  --brand-teal: #14B8A6; /* Teal 400 */
+  --brand-teal-hover: #0D9488;
+  --brand-teal-bg: rgba(20, 184, 166, 0.12);
+  --brand-teal-text: #0B0F19;
+
+  /* Balanced Complementary Color 2 in Dark: High-Visibility Amber */
+  --brand-accent: #F59E0B; /* Amber 500 */
+  --brand-accent-hover: #D97706;
+  --brand-accent-bg: rgba(245, 158, 11, 0.12);
+  --brand-accent-text: #0B0F19;
+
+  /* High Contrast Hero Overlay in Dark */
+  --hero-overlay-bg: rgba(11, 15, 25, 0.88);
+  --hero-card-bg: rgba(17, 24, 39, 0.96);
+
+  --modal-overlay: rgba(0, 0, 0, 0.85);
+}
+
+/* Base Reset & Typography */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--body-text-color);
+  color-scheme: light;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html.dark {
+  background-color: var(--bg-primary) !important;
+  color-scheme: dark;
 }
 
 body {
-    background-color: var(--bg-color);
-    color: var(--text-main);
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  background-color: var(--bg-primary);
+  color: var(--body-text-color);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Professional Modern Card */
-.neu-flat {
-    background: var(--card-bg);
-    box-shadow: 0 4px 6px -1px var(--shadow-color), 0 2px 4px -1px var(--shadow-color);
-    border: 1px solid var(--border-color);
-    border-radius: 0.5rem; /* Force rounded-lg */
-    transition: all 0.2s ease-in-out;
+html.dark body {
+  background-color: var(--bg-primary) !important;
 }
 
-/* Subtle inset background for sections */
-.neu-inset {
-    background: var(--bg-color);
-    border: 1px solid var(--border-color);
-    border-radius: 0.5rem;
+/* ==========================================================================
+   STRICT UNIFIED HEADING COLOR ACROSS ENTIRE PROJECT
+   ========================================================================== */
+h1, h2, h3, h4, h5, h6,
+.unified-heading {
+  color: var(--heading-color) !important;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
 }
 
-/* Professional transparent button for navs/icons */
-.neu-btn {
-    background: transparent;
-    border: 1px solid transparent;
-    border-radius: 0.5rem;
-    transition: all 0.2s ease-in-out;
-}
-.neu-btn:hover {
-    background: rgba(148, 163, 184, 0.1);
-}
-html.dark .neu-btn:hover {
-    background: rgba(148, 163, 184, 0.15);
+.section-subtitle,
+.subheading-unified {
+  color: var(--subheading-color) !important;
 }
 
-/* Overrides for buttons that explicitly need a solid background */
-/* If a button has bg-blue-600, we don't want neu-btn to make it transparent! */
-.neu-btn.bg-blue-600, .neu-inset.bg-blue-600 {
-    background-color: #2563eb !important;
-    color: white !important;
-    border: 1px solid #1d4ed8 !important;
-}
-.neu-btn.bg-blue-600:hover, .neu-inset.bg-blue-600:hover {
-    background-color: #1d4ed8 !important;
+/* Theme Surface Helpers */
+.bg-theme-primary {
+  background-color: var(--bg-primary);
 }
 
-.neu-text {
-    text-shadow: none;
-}
-html.dark .neu-text {
-    text-shadow: none;
+.bg-theme-secondary {
+  background-color: var(--bg-secondary);
 }
 
-.hero-bg {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+.bg-theme-tertiary {
+  background-color: var(--bg-tertiary);
+}
+
+.border-theme {
+  border-color: var(--border-color);
+}
+
+.border-theme-strong {
+  border-color: var(--border-strong);
+}
+
+/* ==========================================================================
+   HIGH-CONTRAST FLAT BUTTON STYLING (NO GRADIENTS, NO NEUMORPHISM)
+   ========================================================================== */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-weight: 700;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: var(--brand-accent);
+  color: var(--brand-accent-text) !important;
+  border: 1px solid var(--brand-accent);
+  border-radius: 0.25rem;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-primary:hover {
+  background-color: var(--brand-accent-hover);
+  border-color: var(--brand-accent-hover);
+}
+
+.btn-teal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-weight: 700;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: var(--brand-teal);
+  color: var(--brand-teal-text) !important;
+  border: 1px solid var(--brand-teal);
+  border-radius: 0.25rem;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-teal:hover {
+  background-color: var(--brand-teal-hover);
+  border-color: var(--brand-teal-hover);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-weight: 700;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: transparent;
+  color: var(--heading-color) !important;
+  border: 2px solid var(--border-strong);
+  border-radius: 0.25rem;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-secondary:hover {
+  background-color: var(--border-strong);
+  color: var(--bg-primary) !important;
+}
+
+/* ==========================================================================
+   HERO OVERLAY ARCHITECTURE (CRYSTAL-CLEAR BG IMAGE + 100% TEXT LEGIBILITY)
+   Directional gradient ensures the background photo remains clear and visible
+   while providing high-contrast clarity directly behind text. NO BLUR.
+   ========================================================================== */
+.hero-wrapper {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.hero-overlay,
+.hero-scrim {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.85) 45%, rgba(255, 255, 255, 0.45) 75%, rgba(255, 255, 255, 0.15) 100%);
+}
+
+html.dark .hero-overlay,
+html.dark .hero-scrim {
+  background: linear-gradient(90deg, rgba(11, 15, 25, 0.94) 0%, rgba(11, 15, 25, 0.86) 45%, rgba(11, 15, 25, 0.45) 75%, rgba(11, 15, 25, 0.18) 100%);
+}
+
+[dir="rtl"] .hero-overlay,
+[dir="rtl"] .hero-scrim {
+  background: linear-gradient(270deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.85) 45%, rgba(255, 255, 255, 0.45) 75%, rgba(255, 255, 255, 0.15) 100%);
+}
+
+[dir="rtl"] html.dark .hero-overlay,
+[dir="rtl"] html.dark .hero-scrim {
+  background: linear-gradient(270deg, rgba(11, 15, 25, 0.94) 0%, rgba(11, 15, 25, 0.86) 45%, rgba(11, 15, 25, 0.45) 75%, rgba(11, 15, 25, 0.18) 100%);
+}
+
+@media (max-width: 768px) {
+  .hero-overlay,
+  .hero-scrim {
+    background: rgba(255, 255, 255, 0.88) !important;
+  }
+  html.dark .hero-overlay,
+  html.dark .hero-scrim {
+    background: rgba(11, 15, 25, 0.90) !important;
+  }
+}
+
+.hero-wrapper > *:not(.hero-overlay):not(.hero-scrim) {
+  position: relative;
+  z-index: 10;
+}
+
+.hero-card {
+  background-color: var(--hero-card-bg);
+  border: 2px solid var(--border-color);
+}
+
+/* ==========================================================================
+   FLAT ARCHITECTURAL CARDS (CLEAN & SHARP)
+   ========================================================================== */
+.flat-card {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 0.375rem;
+  padding: 1.5rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  overflow: hidden;
+}
+
+.flat-card.card-flush,
+.flat-card.\!p-0,
+.flat-card-flush,
+.program-card {
+  padding: 0 !important;
+}
+
+.flat-card:hover {
+  border-color: var(--brand-teal);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
+}
+
+html.dark .flat-card:hover {
+  border-color: var(--brand-teal);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* ==========================================================================
+   FLEXIBLE CREDENTIAL BADGES & PILLS (HIGH CONTRAST & BREATHING ROOM)
+   ========================================================================== */
+.credential-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.375rem 0.875rem;
+  min-width: 3.5rem;
+  font-weight: 800;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 0.125rem;
+}
+
+.badge-amber {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  background-color: rgba(217, 119, 6, 0.12);
+  color: #B45309;
+  border: 1px solid rgba(217, 119, 6, 0.35);
+  font-weight: 700;
+  font-size: 0.6875rem;
+  padding: 0.25rem 0.625rem;
+  border-radius: 0.125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+html.dark .badge-amber {
+  background-color: rgba(245, 158, 11, 0.15);
+  color: #FBBF24;
+  border-color: rgba(245, 158, 11, 0.4);
+}
+
+.badge-teal {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  background-color: rgba(13, 148, 136, 0.12);
+  color: #0F766E;
+  border: 1px solid rgba(13, 148, 136, 0.35);
+  font-weight: 700;
+  font-size: 0.6875rem;
+  padding: 0.25rem 0.625rem;
+  border-radius: 0.125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+html.dark .badge-teal {
+  background-color: rgba(20, 184, 166, 0.15);
+  color: #2DD4BF;
+  border-color: rgba(20, 184, 166, 0.4);
+}
+
+.badge-slate {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  background-color: rgba(15, 23, 42, 0.06);
+  color: #334155;
+  border: 1px solid var(--border-color);
+  font-weight: 700;
+  font-size: 0.6875rem;
+  padding: 0.25rem 0.625rem;
+  border-radius: 0.125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+html.dark .badge-slate {
+  background-color: rgba(248, 250, 252, 0.08);
+  color: #CBD5E1;
+  border-color: rgba(248, 250, 252, 0.18);
+}
+
+/* Condition Badges */
+.badge-autism {
+  background-color: #0369A1;
+  color: #F0F9FF;
+  font-weight: 700;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.625rem;
+  border-radius: 0.125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge-adhd {
+  background-color: #B45309;
+  color: #FFFBEB;
+  font-weight: 700;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.625rem;
+  border-radius: 0.125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge-sensory {
+  background-color: #0F766E;
+  color: #F0FDFA;
+  font-weight: 700;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.625rem;
+  border-radius: 0.125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge-speech {
+  background-color: #4338CA;
+  color: #EEF2FF;
+  font-weight: 700;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.625rem;
+  border-radius: 0.125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge-downsyndrome {
+  background-color: #BE185D;
+  color: #FDF2F8;
+  font-weight: 700;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.625rem;
+  border-radius: 0.125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge-learning {
+  background-color: #047857;
+  color: #ECFDF5;
+  font-weight: 700;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.625rem;
+  border-radius: 0.125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ==========================================================================
+   NAVBAR ACTIVE TAB HIGHLIGHTER (High-Contrast, Clean & Flat)
+   Desktop: Solid Accent Indicator Bar & Accent Font
+   Mobile Drawer: Accent Pill Background & Indicator Border
+   ========================================================================== */
+.nav-link-item {
+  position: relative;
+  transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+
+/* Desktop Active Tab */
+header nav .nav-link-item.active {
+  color: var(--brand-accent) !important;
+  font-weight: 800 !important;
+  border-bottom: 2px solid var(--brand-accent) !important;
+}
+
+html.dark header nav .nav-link-item.active {
+  color: var(--brand-accent) !important;
+  border-bottom: 2px solid var(--brand-accent) !important;
+}
+
+header nav .nav-link-item:hover {
+  color: var(--brand-accent) !important;
+}
+
+/* Mobile Drawer Active Tab */
+#mobile-menu-drawer .nav-link-item {
+  padding: 0.625rem 0.75rem;
+  border-left: 3px solid transparent;
+  transition: all 0.15s ease;
+}
+
+#mobile-menu-drawer .nav-link-item.active {
+  color: var(--brand-accent) !important;
+  font-weight: 800 !important;
+  background-color: rgba(217, 119, 6, 0.08);
+  border-left: 3px solid var(--brand-accent) !important;
+}
+
+html.dark #mobile-menu-drawer .nav-link-item.active {
+  color: var(--brand-accent) !important;
+  background-color: rgba(245, 158, 11, 0.15);
+  border-left: 3px solid var(--brand-accent) !important;
+}
+
+/* RTL Support for Mobile Drawer Active Tab */
+[dir="rtl"] #mobile-menu-drawer .nav-link-item {
+  border-left: none;
+  border-right: 3px solid transparent;
+}
+
+[dir="rtl"] #mobile-menu-drawer .nav-link-item.active {
+  border-left: none !important;
+  border-right: 3px solid var(--brand-accent) !important;
+}
+
+/* ==========================================================================
+   NAVBAR HOME SELECTION BOX
+   ========================================================================== */
+.nav-home-select {
+  border-radius: 0.25rem;
+  background-color: var(--bg-primary);
+  color: var(--body-text-color);
+  border: 1px solid var(--border-color);
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.nav-home-select:hover,
+.nav-home-select:focus {
+  border-color: var(--brand-accent);
+}
+
+.nav-home-select.active {
+  border-color: var(--brand-accent) !important;
+  color: var(--brand-accent) !important;
+  font-weight: 800 !important;
+}
+
+.nav-home-select option {
+  background-color: var(--bg-primary);
+  color: var(--body-text-color);
+  font-weight: 700;
+  padding: 0.5rem;
+}
+
+/* Home Dropdown Menu - Strictly hidden until interacted with */
+.home-nav-dropdown {
+  position: relative;
+}
+
+.home-nav-dropdown .dropdown-menu,
+.home-nav-dropdown .home-nav-popover,
+.home-nav-popover {
+  display: none !important;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  animation: fadeInMenu 0.15s ease-out;
+}
+
+.home-nav-dropdown:hover .dropdown-menu,
+.home-nav-dropdown:hover .home-nav-popover,
+.home-nav-dropdown:focus-within .dropdown-menu,
+.home-nav-dropdown:focus-within .home-nav-popover {
+  display: block !important;
+}
+
+@keyframes fadeInMenu {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   FORM INPUT STYLING & VALIDATION STATES
+   ========================================================================== */
+.form-input,
+.input-field {
+  width: 100%;
+  padding: 0.8125rem 1rem;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  color: var(--body-text-color);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  border-radius: 0.375rem;
+  outline: none;
+  transition: all 0.15s ease-in-out;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+}
+
+.form-input::placeholder,
+.input-field::placeholder {
+  color: #94A3B8;
+}
+
+html.dark .form-input::placeholder,
+html.dark .input-field::placeholder {
+  color: #64748B;
+}
+
+.form-input:hover,
+.input-field:hover {
+  border-color: #94A3B8;
+}
+
+html.dark .form-input:hover,
+html.dark .input-field:hover {
+  border-color: #64748B;
+}
+
+.form-input:focus,
+.input-field:focus {
+  border-color: var(--brand-accent) !important;
+  box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.2) !important;
+}
+
+select.form-input,
+select.input-field {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364748B'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1.125rem;
+  padding-right: 2.75rem;
+  cursor: pointer;
+}
+
+[dir="rtl"] select.form-input,
+[dir="rtl"] select.input-field {
+  background-position: left 1rem center;
+  padding-right: 1rem;
+  padding-left: 2.75rem;
+}
+
+textarea.form-input,
+textarea.input-field {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.form-input.is-invalid,
+.input-field.is-invalid {
+  border-color: #EF4444 !important;
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2) !important;
+}
+
+.form-input.is-valid,
+.input-field.is-valid {
+  border-color: #10B981 !important;
+}
+
+.error-message {
+  color: #EF4444;
+  font-size: 0.75rem;
+  margin-top: 0.375rem;
+  display: none;
+  font-weight: 600;
+}
+
+.form-input.is-invalid + .error-message,
+.input-field.is-invalid + .error-message,
+.form-group.has-error .error-message {
+  display: block;
+}
+
+/* ==========================================================================
+   MODAL OVERLAY (CONSULTATION BOOKING & TOURS)
+   ========================================================================== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: var(--modal-overlay);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.modal-content {
+  background-color: var(--bg-primary);
+  border: 2px solid var(--border-strong);
+  width: 100%;
+  max-width: 36rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.25rem;
+}
+
+/* ==========================================================================
+   TOAST NOTIFICATIONS
+   ========================================================================== */
+#toast-container {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 24rem;
+  width: calc(100% - 3rem);
+}
+
+.toast {
+  background-color: var(--bg-primary);
+  border: 2px solid var(--border-strong);
+  padding: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+  animation: toastSlideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes toastSlideIn {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ==========================================================================
+   RTL SUPPORT
+   ========================================================================== */
+[dir="rtl"] {
+  text-align: right;
+}
+
+[dir="rtl"] .rtl-flip {
+  transform: scaleX(-1);
+}
+
+[dir="rtl"] .space-x-reverse > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 1;
+}
+
+/* Filter Tag Buttons */
+.filter-btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-primary);
+  color: var(--body-text-color);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.15s ease;
+  cursor: pointer;
+  border-radius: 0.25rem;
+}
+
+.filter-btn:hover {
+  border-color: var(--brand-teal);
+  color: var(--brand-teal);
+}
+
+.filter-btn.active {
+  background-color: var(--brand-teal);
+  color: #FFFFFF !important;
+  border-color: var(--brand-teal);
 }
