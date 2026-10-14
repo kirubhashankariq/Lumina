@@ -100,6 +100,8 @@ html {
   color-scheme: light;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+  max-width: 100vw;
 }
 
 html.dark {
@@ -108,12 +110,19 @@ html.dark {
 }
 
 body {
-  overflow-x: hidden;
+  overflow-x: clip;
+  max-width: 100vw;
   background-color: var(--bg-primary);
   color: var(--body-text-color);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+@supports not (overflow-x: clip) {
+  html, body {
+    overflow-x: hidden;
+  }
 }
 
 html.dark body {
@@ -257,32 +266,32 @@ h1, h2, h3, h4, h5, h6,
   height: 100%;
   z-index: 1;
   pointer-events: none;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.85) 45%, rgba(255, 255, 255, 0.45) 75%, rgba(255, 255, 255, 0.15) 100%);
+  background: rgba(255, 255, 255, 0.65);
 }
 
 html.dark .hero-overlay,
 html.dark .hero-scrim {
-  background: linear-gradient(90deg, rgba(11, 15, 25, 0.94) 0%, rgba(11, 15, 25, 0.86) 45%, rgba(11, 15, 25, 0.45) 75%, rgba(11, 15, 25, 0.18) 100%);
+  background: rgba(11, 15, 25, 0.78);
 }
 
 [dir="rtl"] .hero-overlay,
 [dir="rtl"] .hero-scrim {
-  background: linear-gradient(270deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.85) 45%, rgba(255, 255, 255, 0.45) 75%, rgba(255, 255, 255, 0.15) 100%);
+  background: rgba(255, 255, 255, 0.65);
 }
 
 [dir="rtl"] html.dark .hero-overlay,
 [dir="rtl"] html.dark .hero-scrim {
-  background: linear-gradient(270deg, rgba(11, 15, 25, 0.94) 0%, rgba(11, 15, 25, 0.86) 45%, rgba(11, 15, 25, 0.45) 75%, rgba(11, 15, 25, 0.18) 100%);
+  background: rgba(11, 15, 25, 0.78);
 }
 
 @media (max-width: 768px) {
   .hero-overlay,
   .hero-scrim {
-    background: rgba(255, 255, 255, 0.88) !important;
+    background: rgba(255, 255, 255, 0.75) !important;
   }
   html.dark .hero-overlay,
   html.dark .hero-scrim {
-    background: rgba(11, 15, 25, 0.90) !important;
+    background: rgba(11, 15, 25, 0.85) !important;
   }
 }
 
@@ -787,3 +796,95 @@ textarea.input-field {
   color: #FFFFFF !important;
   border-color: var(--brand-teal);
 }
+
+/* ==========================================================================
+   MOBILE RESPONSIVENESS & 320PX SCREEN OPTIMIZATION
+   Ensures buttons never overflow card borders, badges wrap gracefully,
+   and cards maintain proportional breathing space on small displays.
+   ========================================================================== */
+@media (max-width: 640px) {
+  /* Buttons: wrap naturally, scale typography, and fit 100% of container width */
+  .btn-primary,
+  .btn-secondary,
+  .btn-teal,
+  a.btn-primary,
+  a.btn-secondary,
+  a.btn-teal,
+  button.btn-primary,
+  button.btn-secondary,
+  button.btn-teal,
+  [class*="btn-primary"],
+  [class*="btn-secondary"],
+  [class*="btn-teal"] {
+    white-space: normal !important;
+    word-break: normal;
+    overflow-wrap: break-word;
+    text-align: center !important;
+    padding: 0.625rem 0.875rem !important;
+    font-size: 0.75rem !important;
+    letter-spacing: 0.025em !important;
+    line-height: 1.35 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Force override on any static utility padding that would burst mobile buttons */
+  .btn-primary.\!px-8,
+  .btn-secondary.\!px-8,
+  .btn-teal.\!px-8,
+  .btn-primary.\!px-6,
+  .btn-secondary.\!px-6,
+  .btn-teal.\!px-6 {
+    padding-left: 0.875rem !important;
+    padding-right: 0.875rem !important;
+  }
+
+  /* Credential Badges & Tracking Overflows */
+  [class*="tracking-widest"] {
+    letter-spacing: 0.035em !important;
+    font-size: 0.6875rem !important;
+    white-space: normal !important;
+    text-align: center;
+    line-height: 1.35 !important;
+    box-sizing: border-box;
+  }
+
+  [class*="tracking-wider"] {
+    letter-spacing: 0.025em !important;
+  }
+
+  /* Headings word-break protection */
+  h1, h2, h3, h4, h5, h6,
+  .unified-heading {
+    overflow-wrap: break-word;
+    word-break: break-word;
+    hyphens: manual;
+  }
+
+  /* Flat Card mobile padding */
+  .flat-card:not(.card-flush):not(.flat-card-flush):not(.\!p-0) {
+    padding: 1rem !important;
+  }
+
+  /* Mobile menu drawer max sizing */
+  #mobile-menu-drawer {
+    width: 280px !important;
+    max-width: 88vw !important;
+  }
+
+  /* Modal content max sizing */
+  .modal-content {
+    max-width: calc(100vw - 1.5rem) !important;
+    margin: 0.75rem !important;
+  }
+
+  /* Hide scrollbars for overflow-x filter bars */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
