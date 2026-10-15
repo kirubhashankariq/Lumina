@@ -40,9 +40,6 @@
       document.body.style.backgroundColor = isDark ? '#0B0F19' : '#FFFFFF';
     }
     updateThemeIcons(isDark);
-    if (window.showToast) {
-      window.showToast(isDark ? 'Dark mode enabled' : 'Light mode enabled', 'info', 'Theme Updated');
-    }
   }
 
   function updateThemeIcons(isDark) {

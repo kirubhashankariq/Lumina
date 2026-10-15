@@ -251,9 +251,11 @@ h1, h2, h3, h4, h5, h6,
    ========================================================================== */
 .hero-wrapper {
   position: relative;
+  /* Photo fills the full width of the hero; anchored slightly high so faces stay in view */
   background-size: cover;
-  background-position: center;
+  background-position: center 30%;
   background-repeat: no-repeat;
+  background-color: #E2E8F0;
   isolation: isolate;
   overflow: hidden;
 }
@@ -266,33 +268,74 @@ h1, h2, h3, h4, h5, h6,
   height: 100%;
   z-index: 1;
   pointer-events: none;
-  background: rgba(255, 255, 255, 0.65);
+  /* Light mode: solid bright panel behind the centered text, photo stays visible at the edges */
+  background:
+    radial-gradient(ellipse 70% 75% at 50% 50%,
+      rgba(255, 255, 255, 0.55) 0%,
+      rgba(255, 255, 255, 0.35) 55%,
+      rgba(255, 255, 255, 0.05) 100%);
 }
 
 html.dark .hero-overlay,
 html.dark .hero-scrim {
-  background: rgba(11, 15, 25, 0.78);
-}
-
-[dir="rtl"] .hero-overlay,
-[dir="rtl"] .hero-scrim {
-  background: rgba(255, 255, 255, 0.65);
-}
-
-[dir="rtl"] html.dark .hero-overlay,
-[dir="rtl"] html.dark .hero-scrim {
-  background: rgba(11, 15, 25, 0.78);
+  background:
+    radial-gradient(ellipse 70% 75% at 50% 50%,
+      rgba(11, 15, 25, 0.55) 0%,
+      rgba(11, 15, 25, 0.40) 55%,
+      rgba(11, 15, 25, 0.15) 100%);
 }
 
 @media (max-width: 768px) {
   .hero-overlay,
   .hero-scrim {
-    background: rgba(255, 255, 255, 0.75) !important;
+    background: rgba(255, 255, 255, 0.60) !important;
   }
   html.dark .hero-overlay,
   html.dark .hero-scrim {
-    background: rgba(11, 15, 25, 0.85) !important;
+    background: rgba(11, 15, 25, 0.60) !important;
   }
+}
+
+/* Light mode: darker hero body text + soft halo so it never blends into the photo */
+html:not(.dark) .hero-wrapper h1 {
+  color: #334155;
+  text-shadow: 0 0 14px rgba(255, 255, 255, 0.6);
+}
+html:not(.dark) .hero-wrapper p {
+  color: #475569;
+  font-weight: 500;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+html.dark .hero-wrapper {
+  background-color: #0B0F19;
+}
+
+/* Dark mode: shadow behind hero text so it stays readable over the brighter photo */
+html.dark .hero-wrapper h1 {
+  color: #E2E8F0;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55);
+}
+html.dark .hero-wrapper p {
+  color: #CBD5E1;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.55);
+}
+
+/* Hero heading: calmer size + weight on every page */
+.hero-wrapper h1 {
+  font-weight: 700;
+  font-size: 1.75rem;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+@media (min-width: 640px) {
+  .hero-wrapper h1 { font-size: 2.5rem; }
+}
+@media (min-width: 1024px) {
+  .hero-wrapper h1 { font-size: 3rem; }
+}
+html.dark .hero-wrapper h1 {
+  color: #D5DBE3;
 }
 
 .hero-wrapper > *:not(.hero-overlay):not(.hero-scrim) {
